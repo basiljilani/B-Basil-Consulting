@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { MapPin, Phone, Mail, Send, Copy, ExternalLink } from "lucide-react";
+import { Send, Copy } from "lucide-react";
 import { toast } from "sonner";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -10,26 +10,6 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import EmailTemplate from "@/components/EmailTemplate";
-
-const contactOptions = [
-  {
-    icon: <MapPin className="h-6 w-6 text-basil-500" />,
-    title: "Visit Us",
-    description: "123 Business Avenue, Suite 500, San Francisco, CA 94107",
-  },
-  {
-    icon: <Phone className="h-6 w-6 text-basil-500" />,
-    title: "Call Us",
-    description: "+1 (234) 567-890",
-    action: "tel:+1234567890"
-  },
-  {
-    icon: <Mail className="h-6 w-6 text-basil-500" />,
-    title: "Email Us",
-    description: "info@basilconsulting.net",
-    action: "mailto:info@basilconsulting.net"
-  }
-];
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -108,30 +88,9 @@ const Contact = () => {
           </Container>
         </section>
         
-        {/* Contact Options */}
+        {/* Contact Form */}
         <section className="py-16">
           <Container>
-            <div className="grid md:grid-cols-3 gap-8 mb-16">
-              {contactOptions.map((option, index) => (
-                <div key={index} className="text-center p-6 border border-gray-100 rounded-xl hover:shadow-md transition-all">
-                  <div className="mx-auto flex items-center justify-center w-12 h-12 rounded-full bg-basil-50 mb-4">
-                    {option.icon}
-                  </div>
-                  <h3 className="text-lg font-semibold mb-2">{option.title}</h3>
-                  {option.action ? (
-                    <a 
-                      href={option.action} 
-                      className="text-gray-600 hover:text-basil-500 transition-colors"
-                    >
-                      {option.description}
-                    </a>
-                  ) : (
-                    <p className="text-gray-600">{option.description}</p>
-                  )}
-                </div>
-              ))}
-            </div>
-            
             {/* Contact Form */}
             <div className="max-w-3xl mx-auto">
               <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-8">
