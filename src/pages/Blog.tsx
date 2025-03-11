@@ -3,14 +3,15 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Container from "@/components/ui/container";
 import BlogList from "@/components/blog/BlogList";
+import SectionHeading from "@/components/ui/section-heading";
 
 const Blog = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
-      <main className="flex-grow pt-24">
+      <main className="flex-grow pt-24 lg:pt-28">
         {/* Header */}
-        <section className="bg-gray-50 py-16">
+        <section className="bg-gray-50 py-16 md:py-20">
           <Container>
             <div className="max-w-3xl mx-auto text-center">
               <h1 className="text-4xl md:text-5xl font-bold mb-4">Our Blog</h1>
@@ -22,7 +23,7 @@ const Blog = () => {
         </section>
         
         {/* Blog List Section */}
-        <section className="py-16">
+        <section className="py-16 md:py-20">
           <Container>
             <BlogList />
           </Container>
