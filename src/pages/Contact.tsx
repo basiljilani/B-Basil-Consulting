@@ -1,8 +1,7 @@
 
 import { useState } from "react";
-import { MapPin, Phone, Mail, Send } from "lucide-react";
+import { MapPin, Phone, Mail, Send, Copy, ExternalLink } from "lucide-react";
 import { toast } from "sonner";
-import emailjs from '@emailjs/browser';
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Container from "@/components/ui/container";
@@ -10,6 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
+import EmailTemplate from "@/components/EmailTemplate";
 
 const contactOptions = [
   {
@@ -26,8 +26,8 @@ const contactOptions = [
   {
     icon: <Mail className="h-6 w-6 text-basil-500" />,
     title: "Email Us",
-    description: "info@basilconsulting.com",
-    action: "mailto:info@basilconsulting.com"
+    description: "info@basilconsulting.net",
+    action: "mailto:info@basilconsulting.net"
   }
 ];
 
@@ -40,49 +40,56 @@ const Contact = () => {
     message: ""
   });
   
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showEmailTemplate, setShowEmailTemplate] = useState(false);
   
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
   
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
+    setShowEmailTemplate(true);
+  };
+
+  const handleCloseTemplate = () => {
+    setShowEmailTemplate(false);
+  };
+
+  const handleComposeEmail = () => {
+    const subject = encodeURIComponent(`Business Inquiry: ${formData.subject}`);
     
-    try {
-      // Replace these with your actual EmailJS service details
-      const templateParams = {
-        to_email: 'info@basilconsulting.net',
-        from_name: formData.name,
-        from_email: formData.email,
-        company: formData.company,
-        subject: formData.subject,
-        message: formData.message
-      };
-
-      await emailjs.send(
-        'YOUR_SERVICE_ID', // Replace with your EmailJS service ID
-        'YOUR_TEMPLATE_ID', // Replace with your EmailJS template ID
-        templateParams,
-        'YOUR_PUBLIC_KEY' // Replace with your EmailJS public key
-      );
-
-      toast.success("Your message has been sent successfully!");
-      setFormData({
-        name: "",
-        email: "",
-        company: "",
-        subject: "",
-        message: ""
-      });
-    } catch (error) {
-      console.error('Error sending email:', error);
-      toast.error("Failed to send message. Please try again later.");
-    } finally {
-      setIsSubmitting(false);
-    }
+    // Create a structured email body
+    const body = encodeURIComponent(
+      `Dear Basil Consulting Team,\n\n` +
+      `Introduction:\n` +
+      `My name is ${formData.name} and I'm reaching out regarding ${formData.subject}.\n\n` +
+      
+      `Company Details:\n` +
+      `• Company/Organization Name: ${formData.company || "N/A"}\n` +
+      `• Email: ${formData.email}\n\n` +
+      
+      `Project Specifics:\n` +
+      `${formData.message}\n\n` +
+      
+      `I look forward to your response.\n\n` +
+      `Best regards,\n` +
+      `${formData.name}`
+    );
+    
+    window.location.href = `mailto:info@basilconsulting.net?subject=${subject}&body=${body}`;
+    
+    // Reset form after sending
+    setFormData({
+      name: "",
+      email: "",
+      company: "",
+      subject: "",
+      message: ""
+    });
+    
+    setShowEmailTemplate(false);
+    toast.success("Email client opened with your message!");
   };
 
   return (
@@ -197,16 +204,9 @@ const Contact = () => {
                   <Button 
                     type="submit" 
                     className="w-full sm:w-auto rounded-full"
-                    disabled={isSubmitting}
                   >
-                    {isSubmitting ? (
-                      "Sending Message..."
-                    ) : (
-                      <>
-                        Send Message
-                        <Send className="ml-2 h-4 w-4" />
-                      </>
-                    )}
+                    Preview Email
+                    <Send className="ml-2 h-4 w-4" />
                   </Button>
                 </form>
               </div>
@@ -214,6 +214,16 @@ const Contact = () => {
           </Container>
         </section>
       </main>
+      
+      {/* Email Template Modal */}
+      {showEmailTemplate && (
+        <EmailTemplate 
+          formData={formData}
+          onClose={handleCloseTemplate}
+          onComposeEmail={handleComposeEmail}
+        />
+      )}
+      
       <Footer />
     </div>
   );
