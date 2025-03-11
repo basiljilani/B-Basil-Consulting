@@ -11,6 +11,9 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import CustomSolutions from "./pages/CustomSolutions";
+import DataInfrastructure from "./pages/DataInfrastructure";
+import SecurityCompliance from "./pages/SecurityCompliance";
+import AnalyticsInsights from "./pages/AnalyticsInsights";
 
 const queryClient = new QueryClient();
 
@@ -25,6 +28,9 @@ const App = () => (
           <Route path="/services" element={<Services />} />
           <Route path="/products" element={<Products />} />
           <Route path="/solutions/custom-solutions" element={<CustomSolutions />} />
+          <Route path="/solutions/data-infrastructure" element={<DataInfrastructure />} />
+          <Route path="/solutions/security-compliance" element={<SecurityCompliance />} />
+          <Route path="/solutions/analytics-insights" element={<AnalyticsInsights />} />
           <Route path="/blog" element={<Navigate to="https://basilconsulting.substack.com/" replace />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
