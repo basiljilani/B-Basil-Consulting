@@ -10,6 +10,7 @@ import Products from "./pages/Products";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+import CustomSolutions from "./pages/CustomSolutions";
 
 const queryClient = new QueryClient();
 
@@ -23,6 +24,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/services" element={<Services />} />
           <Route path="/products" element={<Products />} />
+          <Route path="/solutions/custom-solutions" element={<CustomSolutions />} />
           <Route path="/blog" element={<Navigate to="https://basilconsulting.substack.com/" replace />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
