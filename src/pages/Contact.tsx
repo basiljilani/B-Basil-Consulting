@@ -164,7 +164,7 @@ const Contact = () => {
                     type="submit" 
                     className="w-full sm:w-auto rounded-full"
                   >
-                    Preview Email
+                    Preview Message
                     <Send className="ml-2 h-4 w-4" />
                   </Button>
                 </form>
