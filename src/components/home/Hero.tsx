@@ -1,4 +1,3 @@
-
 import { ArrowRight, TrendingUp, Brain, BarChart3 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -160,15 +159,15 @@ const Hero = () => {
                 </div>
                 
                 <div className="mt-3 flex justify-between items-baseline">
-                  <span className="text-3xl font-bold text-gray-900">$4.4T</span>
+                  <span className="text-3xl font-bold text-gray-900">$13T</span>
                   <span className="text-sm text-basil-600 flex items-center">
                     <TrendingUp className="h-4 w-4 mr-1" />
-                    Annual Value
+                    By 2030
                   </span>
                 </div>
                 
                 <p className="mt-3 text-sm text-gray-600">
-                  Projected annual value added by AI across industries
+                  Projected global economic value added by generative AI
                 </p>
               </motion.div>
               
@@ -202,15 +201,15 @@ const Hero = () => {
                 </div>
                 
                 <div className="mt-3 flex justify-between items-baseline">
-                  <span className="text-3xl font-bold text-gray-900">$1.5T</span>
+                  <span className="text-3xl font-bold text-gray-900">$1.8T</span>
                   <span className="text-sm text-basil-600 flex items-center">
                     <TrendingUp className="h-4 w-4 mr-1" />
-                    Market Cap
+                    Revenue by 2025
                   </span>
                 </div>
                 
                 <p className="mt-3 text-sm text-gray-600">
-                  Global fintech market growth projection by 2025
+                  Global fintech industry projected revenue by 2025
                 </p>
               </motion.div>
               
@@ -227,13 +226,13 @@ const Hero = () => {
                     <TrendingUp className="h-6 w-6 text-basil-500" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-800">Digital Investment ROI</h3>
-                    <p className="text-sm text-gray-600">Digitally mature companies performance vs industry average</p>
+                    <h3 className="font-semibold text-gray-800">Digital Transformation ROI</h3>
+                    <p className="text-sm text-gray-600">Digitally mature companies outperform competitors</p>
                   </div>
                 </div>
                 
                 <div className="grid grid-cols-3 gap-3 mt-2">
-                  {[2.5, 3.8, 5.6].map((value, i) => (
+                  {[3.0, 4.1, 5.8].map((value, i) => (
                     <motion.div
                       key={i}
                       initial={{ opacity: 0, y: 10 }}
@@ -258,7 +257,7 @@ const Hero = () => {
               transition={{ delay: 2, duration: 0.8 }}
               className="absolute -bottom-4 -right-4 text-xs bg-basil-600 text-white py-1 px-2 rounded-md"
             >
-              Sources: McKinsey, Goldman Sachs, Deloitte 2023
+              Sources: McKinsey, Goldman Sachs, Deloitte 2024
             </motion.div>
           </motion.div>
         </div>
@@ -268,4 +267,3 @@ const Hero = () => {
 };
 
 export default Hero;
-
