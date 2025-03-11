@@ -189,7 +189,6 @@ const SecurityCompliance = () => {
                   </div>
                   
                   <motion.div
-                    className="absolute inset-0 bg-gradient-to-br from-basil-500/10 to-black/50 rounded-xl blur-xl"
                     animate={{
                       rotate: [0, 2, 0, -2, 0],
                     }}
