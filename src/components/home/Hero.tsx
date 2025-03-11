@@ -26,7 +26,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-white to-gray-50 pt-24 pb-16 md:pt-32 md:pb-24">
+    <section className="relative overflow-hidden bg-gradient-to-b from-white to-gray-50 pt-16 pb-12 md:pt-20 md:pb-20">
       {/* Background elements */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute right-0 top-0 -translate-y-1/4 translate-x-1/4 transform">
@@ -76,7 +76,7 @@ const Hero = () => {
               Turning <span className="inline-block relative">
                 Data
                 <motion.div
-                  className="absolute bottom-0 left-0 h-1 bg-basil-500"
+                  className="absolute -z-10 bottom-0 left-0 h-1 bg-basil-500"
                   initial={{ width: 0 }}
                   animate={{ width: "100%" }}
                   transition={{ delay: 0.8, duration: 0.8 }}
@@ -86,7 +86,7 @@ const Hero = () => {
               <span className="inline-block relative">
                 Advantage
                 <motion.div
-                  className="absolute bottom-0 left-0 h-1 bg-basil-500"
+                  className="absolute -z-10 bottom-0 left-0 h-1 bg-basil-500"
                   initial={{ width: 0 }}
                   animate={{ width: "100%" }}
                   transition={{ delay: 1.2, duration: 0.8 }}
@@ -127,7 +127,7 @@ const Hero = () => {
             </motion.div>
           </motion.div>
           
-          {/* Right stats column replacing the image */}
+          {/* Right stats column */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -135,7 +135,7 @@ const Hero = () => {
             className="relative"
           >
             <div className="grid grid-cols-2 gap-4">
-              {/* AI Adoption Stat */}
+              {/* AI Market Growth - McKinsey */}
               <motion.div
                 custom={0}
                 variants={statsVariants}
@@ -147,32 +147,32 @@ const Hero = () => {
                   <div className="rounded-full bg-basil-50 w-12 h-12 flex items-center justify-center mr-3">
                     <Brain className="h-6 w-6 text-basil-500" />
                   </div>
-                  <h3 className="font-semibold text-gray-800">AI Adoption</h3>
+                  <h3 className="font-semibold text-gray-800">AI Impact</h3>
                 </div>
                 
                 <div className="mt-2">
                   <motion.div
                     initial={{ width: 0 }}
-                    animate={{ width: "83%" }}
+                    animate={{ width: "87%" }}
                     transition={{ delay: 1, duration: 1 }}
                     className="h-2 bg-basil-500 rounded-full"
                   />
                 </div>
                 
                 <div className="mt-3 flex justify-between items-baseline">
-                  <span className="text-3xl font-bold text-gray-900">83%</span>
+                  <span className="text-3xl font-bold text-gray-900">$4.4T</span>
                   <span className="text-sm text-basil-600 flex items-center">
                     <TrendingUp className="h-4 w-4 mr-1" />
-                    +24% YoY
+                    Annual Value
                   </span>
                 </div>
                 
                 <p className="mt-3 text-sm text-gray-600">
-                  of enterprises implementing AI solutions reported improved efficiency
+                  Projected annual value added by AI across industries
                 </p>
               </motion.div>
               
-              {/* Fintech Growth Stat */}
+              {/* Global Fintech - Goldman Sachs */}
               <motion.div
                 custom={1}
                 variants={statsVariants}
@@ -189,7 +189,7 @@ const Hero = () => {
                 
                 <div className="mt-2">
                   <div className="flex gap-1 h-20">
-                    {[35, 42, 38, 52, 56, 68, 76].map((height, i) => (
+                    {[35, 42, 48, 55, 62, 68, 75].map((height, i) => (
                       <motion.div
                         key={i}
                         initial={{ height: 0 }}
@@ -202,19 +202,19 @@ const Hero = () => {
                 </div>
                 
                 <div className="mt-3 flex justify-between items-baseline">
-                  <span className="text-3xl font-bold text-gray-900">$764B</span>
+                  <span className="text-3xl font-bold text-gray-900">$1.5T</span>
                   <span className="text-sm text-basil-600 flex items-center">
                     <TrendingUp className="h-4 w-4 mr-1" />
-                    +21.4%
+                    Market Cap
                   </span>
                 </div>
                 
                 <p className="mt-3 text-sm text-gray-600">
-                  global fintech market size by 2025, compound annual growth rate
+                  Global fintech market growth projection by 2025
                 </p>
               </motion.div>
               
-              {/* Data ROI Stat */}
+              {/* Digital Transformation ROI - Deloitte */}
               <motion.div
                 custom={2}
                 variants={statsVariants}
@@ -227,13 +227,13 @@ const Hero = () => {
                     <TrendingUp className="h-6 w-6 text-basil-500" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-800">Data Investment ROI</h3>
-                    <p className="text-sm text-gray-600">Companies that invest in data analytics see higher returns</p>
+                    <h3 className="font-semibold text-gray-800">Digital Investment ROI</h3>
+                    <p className="text-sm text-gray-600">Digitally mature companies performance vs industry average</p>
                   </div>
                 </div>
                 
                 <div className="grid grid-cols-3 gap-3 mt-2">
-                  {[5.2, 7.8, 11.3].map((value, i) => (
+                  {[2.5, 3.8, 5.6].map((value, i) => (
                     <motion.div
                       key={i}
                       initial={{ opacity: 0, y: 10 }}
@@ -243,8 +243,8 @@ const Hero = () => {
                     >
                       <div className="text-xl font-bold text-basil-600">{value}x</div>
                       <div className="text-xs text-gray-500">
-                        {i === 0 ? 'Minimal' : i === 1 ? 'Average' : 'Advanced'} 
-                        <br />Investment
+                        {i === 0 ? 'Revenue' : i === 1 ? 'Profit' : 'Growth'} 
+                        <br />Multiplier
                       </div>
                     </motion.div>
                   ))}
@@ -258,7 +258,7 @@ const Hero = () => {
               transition={{ delay: 2, duration: 0.8 }}
               className="absolute -bottom-4 -right-4 text-xs bg-basil-600 text-white py-1 px-2 rounded-md"
             >
-              Source: Industry Reports 2023
+              Sources: McKinsey, Goldman Sachs, Deloitte 2023
             </motion.div>
           </motion.div>
         </div>
@@ -268,3 +268,4 @@ const Hero = () => {
 };
 
 export default Hero;
+
