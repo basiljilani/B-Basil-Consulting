@@ -7,7 +7,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-gray-50 pt-16 pb-8 border-t border-gray-200">
+    <footer className="bg-white pt-16 pb-8 border-t border-gray-200">
       <Container>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
@@ -18,7 +18,7 @@ const Footer = () => {
                 alt="Basil Consulting"
                 className="h-10 w-auto"
               />
-              <span className="ml-3 text-xl font-semibold">Basil Consulting</span>
+              <span className="ml-3 text-xl font-bold">Basil Consulting</span>
             </div>
             <p className="text-gray-600 mb-6">
               Transforming data into strategic assets for businesses worldwide.

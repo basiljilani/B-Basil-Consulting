@@ -91,7 +91,7 @@ const Navbar = () => {
               alt="Basil Consulting"
               className="h-9 w-auto"
             />
-            <span className="ml-3 text-xl font-semibold text-gray-900">Basil Consulting</span>
+            <span className="ml-3 text-xl font-bold text-gray-900">Basil Consulting</span>
           </Link>
 
           {/* Desktop Navigation */}
