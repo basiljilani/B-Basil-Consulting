@@ -1,4 +1,3 @@
-
 import { 
   ArrowRight, 
   CheckCircle2, 
@@ -71,40 +70,19 @@ const stats = [
 ];
 
 const DataInfrastructure = () => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.5
-      }
-    }
-  };
-
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
       <main className="flex-grow pt-24">
         {/* Hero Section */}
-        <section className="bg-gradient-to-b from-blue-50 to-white py-16 md:py-24">
+        <section className="bg-gradient-to-b from-black to-gray-900 text-white py-16 md:py-24">
           <Container>
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
                 <h1 className="text-4xl md:text-5xl font-bold mb-6">
                   Data Infrastructure Solutions
                 </h1>
-                <p className="text-xl text-muted-foreground mb-8">
+                <p className="text-xl text-gray-300 mb-8">
                   Build the foundation for your data-driven business with scalable, reliable, and high-performance infrastructure solutions.
                 </p>
                 <div className="flex flex-wrap gap-4">
@@ -192,7 +170,7 @@ const DataInfrastructure = () => {
                 </div>
                 
                 <motion.div
-                  className="absolute -z-10 inset-0 bg-gradient-to-r from-blue-200 to-purple-200 rounded-[40px] blur-3xl opacity-30"
+                  className="absolute inset-0 bg-gradient-to-r from-basil-500/20 to-basil-600/20 rounded-full blur-3xl"
                   animate={{
                     scale: [1, 1.05, 1],
                     rotate: [0, 1, 0]
@@ -217,7 +195,15 @@ const DataInfrastructure = () => {
             />
             
             <motion.div 
-              variants={containerVariants}
+              variants={{
+                hidden: { opacity: 0 },
+                visible: {
+                  opacity: 1,
+                  transition: {
+                    staggerChildren: 0.1
+                  }
+                }
+              }}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
@@ -226,10 +212,19 @@ const DataInfrastructure = () => {
               {technologies.map((tech, index) => (
                 <motion.div
                   key={index}
-                  variants={itemVariants}
+                  variants={{
+                    hidden: { y: 20, opacity: 0 },
+                    visible: {
+                      y: 0,
+                      opacity: 1,
+                      transition: {
+                        duration: 0.5
+                      }
+                    }
+                  }}
                   className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow"
                 >
-                  <div className="h-12 w-12 rounded-lg bg-blue-50 flex items-center justify-center text-blue-500 mb-4">
+                  <div className="h-12 w-12 rounded-lg bg-basil-50 flex items-center justify-center text-basil-600 mb-4">
                     {tech.icon}
                   </div>
                   <h3 className="text-xl font-semibold mb-3">{tech.title}</h3>
@@ -241,7 +236,7 @@ const DataInfrastructure = () => {
         </section>
         
         {/* Stats Section */}
-        <section className="py-16 md:py-20 bg-gray-50">
+        <section className="py-16 md:py-20 bg-black text-white">
           <Container>
             <SectionHeading 
               title="Data Infrastructure by the Numbers" 
@@ -260,7 +255,7 @@ const DataInfrastructure = () => {
                   className="bg-white p-6 rounded-xl border border-gray-100 text-center"
                 >
                   <motion.p 
-                    className="text-3xl md:text-4xl font-bold text-blue-600 mb-2"
+                    className="text-3xl md:text-4xl font-bold text-basil-500 mb-2"
                     initial={{ scale: 0.5 }}
                     whileInView={{ scale: 1 }}
                     viewport={{ once: true }}
@@ -276,7 +271,7 @@ const DataInfrastructure = () => {
         </section>
         
         {/* Benefits Section */}
-        <section className="py-16 md:py-24">
+        <section className="py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white">
           <Container>
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <motion.div
@@ -389,7 +384,7 @@ const DataInfrastructure = () => {
         </section>
         
         {/* CTA Section */}
-        <section className="py-16 md:py-20 bg-blue-600 text-white">
+        <section className="py-16 md:py-20 bg-gradient-to-b from-gray-900 to-black text-white">
           <Container>
             <div className="max-w-3xl mx-auto text-center">
               <h2 className="text-3xl font-bold mb-6">

@@ -1,4 +1,3 @@
-
 import { 
   ArrowRight, 
   CheckCircle2, 
@@ -67,7 +66,7 @@ const SecurityCompliance = () => {
       <Navbar />
       <main className="flex-grow pt-24">
         {/* Hero Section */}
-        <section className="bg-gradient-to-b from-gray-900 to-gray-800 text-white py-16 md:py-24">
+        <section className="bg-gradient-to-b from-black to-gray-900 text-white py-16 md:py-24">
           <Container>
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
@@ -105,7 +104,7 @@ const SecurityCompliance = () => {
               >
                 <div className="relative">
                   <motion.div 
-                    className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-blue-500/20 rounded-full blur-3xl"
+                    className="absolute inset-0 bg-gradient-to-r from-basil-500/20 to-basil-600/20 rounded-full blur-3xl"
                     animate={{
                       scale: [1, 1.2, 1],
                       opacity: [0.3, 0.6, 0.3]
@@ -116,7 +115,7 @@ const SecurityCompliance = () => {
                     }}
                   />
                   
-                  <div className="bg-gray-800 border border-gray-700 backdrop-blur-sm p-8 rounded-3xl relative z-10">
+                  <div className="bg-black/80 border border-basil-500/20 backdrop-blur-sm p-8 rounded-3xl relative z-10">
                     <motion.div
                       initial={{ scale: 0 }}
                       animate={{ scale: 1 }}
@@ -188,6 +187,19 @@ const SecurityCompliance = () => {
                       ))}
                     </div>
                   </div>
+                  
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-br from-basil-500/10 to-black/50 rounded-xl blur-xl"
+                    animate={{
+                      rotate: [0, 2, 0, -2, 0],
+                    }}
+                    transition={{
+                      repeat: Infinity,
+                      duration: 6,
+                      ease: "easeInOut"
+                    }}
+                    className="absolute -z-10 inset-0 bg-gradient-to-br from-basil-200 to-black/50 rounded-xl blur-xl opacity-50 transform -rotate-3"
+                  />
                 </div>
               </motion.div>
             </div>
@@ -195,7 +207,7 @@ const SecurityCompliance = () => {
         </section>
         
         {/* Security Solutions Section */}
-        <section className="py-16 md:py-24">
+        <section className="py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white">
           <Container>
             <SectionHeading 
               title="Our Security Solutions" 
@@ -213,7 +225,7 @@ const SecurityCompliance = () => {
                   transition={{ duration: 0.4, delay: index * 0.1 }}
                   className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow"
                 >
-                  <div className="h-12 w-12 rounded-lg bg-green-50 flex items-center justify-center text-green-600 mb-4">
+                  <div className="h-12 w-12 rounded-lg bg-basil-50 flex items-center justify-center text-basil-600 mb-4">
                     {solution.icon}
                   </div>
                   <h3 className="text-xl font-semibold mb-3">{solution.title}</h3>
@@ -225,7 +237,7 @@ const SecurityCompliance = () => {
         </section>
         
         {/* Statistics Section */}
-        <section className="py-16 md:py-20 bg-gray-50">
+        <section className="py-16 md:py-20 bg-black text-white">
           <Container>
             <SectionHeading 
               title="The Cost of Poor Security" 
@@ -244,7 +256,7 @@ const SecurityCompliance = () => {
                   className="bg-white p-6 rounded-xl border border-gray-100 text-center"
                 >
                   <motion.p 
-                    className="text-3xl md:text-4xl font-bold text-red-600 mb-2"
+                    className="text-3xl md:text-4xl font-bold text-basil-500 mb-2"
                     initial={{ scale: 0.5 }}
                     whileInView={{ scale: 1 }}
                     viewport={{ once: true }}
@@ -262,146 +274,8 @@ const SecurityCompliance = () => {
           </Container>
         </section>
         
-        {/* Compliance Section */}
-        <section className="py-16 md:py-24 bg-white">
-          <Container>
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-                className="order-2 lg:order-1"
-              >
-                <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                  Regulatory Compliance Expertise
-                </h2>
-                <p className="text-lg text-muted-foreground mb-8">
-                  Stay compliant with industry regulations and standards with our expert guidance and automated compliance solutions.
-                </p>
-                
-                <div className="grid sm:grid-cols-2 gap-4">
-                  {regulations.map((reg, index) => (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0, y: 10 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.3, delay: index * 0.1 }}
-                      className="flex gap-3 items-start"
-                    >
-                      <div className="rounded-full bg-green-100 p-1 mt-1 flex-shrink-0">
-                        <CheckCircle2 className="h-4 w-4 text-green-600" />
-                      </div>
-                      <div>
-                        <h3 className="font-semibold">{reg.name}</h3>
-                        <p className="text-sm text-gray-600">{reg.description}</p>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-                
-                <div className="mt-8">
-                  <Button asChild className="rounded-full">
-                    <Link to="/contact">
-                      Schedule a Compliance Assessment
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                    </Link>
-                  </Button>
-                </div>
-              </motion.div>
-              
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-                className="relative order-1 lg:order-2"
-              >
-                <div className="relative">
-                  <div className="bg-gray-50 border border-gray-100 rounded-xl p-6 shadow-lg">
-                    <div className="flex justify-between items-center mb-6">
-                      <div className="flex items-center gap-2">
-                        <Shield className="h-5 w-5 text-green-600" />
-                        <h3 className="font-semibold">Compliance Dashboard</h3>
-                      </div>
-                      <div className="bg-green-100 text-green-700 py-1 px-3 rounded-full text-xs font-medium">
-                        94% Compliant
-                      </div>
-                    </div>
-                    
-                    <div className="space-y-4">
-                      {[
-                        { name: "Data Protection", percent: 96 },
-                        { name: "Access Controls", percent: 92 },
-                        { name: "Incident Response", percent: 88 },
-                        { name: "User Training", percent: 84 },
-                        { name: "Vendor Management", percent: 79 }
-                      ].map((item, index) => (
-                        <motion.div
-                          key={index}
-                          initial={{ opacity: 0 }}
-                          whileInView={{ opacity: 1 }}
-                          viewport={{ once: true }}
-                          transition={{ delay: 0.2 + (index * 0.1) }}
-                          className="space-y-2"
-                        >
-                          <div className="flex justify-between text-sm">
-                            <span>{item.name}</span>
-                            <span className="font-medium">{item.percent}%</span>
-                          </div>
-                          <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
-                            <motion.div
-                              initial={{ width: "0%" }}
-                              whileInView={{ width: `${item.percent}%` }}
-                              viewport={{ once: true }}
-                              transition={{ duration: 1, delay: 0.4 + (index * 0.1) }}
-                              className={`h-full rounded-full ${
-                                item.percent > 90 
-                                  ? "bg-green-500" 
-                                  : item.percent > 80 
-                                    ? "bg-green-400" 
-                                    : "bg-yellow-500"
-                              }`}
-                            />
-                          </div>
-                        </motion.div>
-                      ))}
-                    </div>
-                    
-                    <div className="mt-8 pt-6 border-t border-gray-200">
-                      <div className="flex justify-between items-center text-sm">
-                        <div>
-                          <span className="font-medium">Next audit:</span>
-                          <span className="text-gray-600 ml-2">In 14 days</span>
-                        </div>
-                        <div className="flex items-center gap-2 text-blue-600">
-                          <span>View details</span>
-                          <ArrowRight className="h-3 w-3" />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <motion.div
-                    animate={{
-                      rotate: [0, 2, 0, -2, 0],
-                    }}
-                    transition={{
-                      repeat: Infinity,
-                      duration: 6,
-                      ease: "easeInOut"
-                    }}
-                    className="absolute -z-10 inset-0 bg-gradient-to-br from-green-200 to-blue-200 rounded-xl blur-xl opacity-50 transform -rotate-3"
-                  />
-                </div>
-              </motion.div>
-            </div>
-          </Container>
-        </section>
-        
         {/* CTA Section */}
-        <section className="py-16 md:py-20 bg-gray-900 text-white">
+        <section className="py-16 md:py-20 bg-gradient-to-b from-gray-900 to-black text-white">
           <Container>
             <div className="max-w-3xl mx-auto text-center">
               <h2 className="text-3xl font-bold mb-6">
