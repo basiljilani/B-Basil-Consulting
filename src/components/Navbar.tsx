@@ -1,4 +1,3 @@
-
 import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
@@ -57,7 +56,6 @@ const Navbar = () => {
     };
   }, []);
 
-  // Close mobile menu when route changes
   useEffect(() => {
     setIsMobileMenuOpen(false);
     setSolutionsDropdownOpen(false);
@@ -94,9 +92,7 @@ const Navbar = () => {
             <span className="ml-3 text-xl font-bold text-gray-900">Basil Consulting</span>
           </Link>
 
-          {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">
-            {/* Solutions Dropdown */}
             <div className="relative" ref={solutionsRef}>
               <button
                 onClick={toggleSolutionsDropdown}
@@ -128,7 +124,6 @@ const Navbar = () => {
               )}
             </div>
             
-            {/* Resources Dropdown */}
             <div className="relative" ref={resourcesRef}>
               <button
                 onClick={toggleResourcesDropdown}
@@ -160,18 +155,14 @@ const Navbar = () => {
               )}
             </div>
             
-            {/* Regular Links */}
-            <Link
-              to="/blog"
-              className={cn(
-                "text-sm font-medium transition-colors",
-                location.pathname === "/blog"
-                  ? "text-basil-500"
-                  : "text-gray-600 hover:text-basil-500"
-              )}
+            <a
+              href="https://basilconsulting.substack.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm font-medium transition-colors text-gray-600 hover:text-basil-500"
             >
               Blog
-            </Link>
+            </a>
             
             <Link
               to="/about"
@@ -198,7 +189,6 @@ const Navbar = () => {
             </Link>
           </nav>
           
-          {/* CTA Buttons */}
           <div className="hidden lg:flex items-center space-x-4">
             <Button 
               variant="outline" 
@@ -211,7 +201,6 @@ const Navbar = () => {
             </Button>
           </div>
 
-          {/* Mobile Menu Button */}
           <button
             className="lg:hidden p-2 text-gray-600"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -225,11 +214,9 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* Mobile Navigation */}
         {isMobileMenuOpen && (
           <div className="lg:hidden mt-4 py-4 border-t border-gray-100 animate-fade-in">
             <div className="space-y-4">
-              {/* Mobile Solutions Dropdown */}
               <div>
                 <button
                   onClick={toggleSolutionsDropdown}
@@ -254,7 +241,6 @@ const Navbar = () => {
                 )}
               </div>
               
-              {/* Mobile Resources Dropdown */}
               <div>
                 <button
                   onClick={toggleResourcesDropdown}
@@ -279,13 +265,14 @@ const Navbar = () => {
                 )}
               </div>
               
-              {/* Mobile Regular Links */}
-              <Link
-                to="/blog"
+              <a
+                href="https://basilconsulting.substack.com/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="block py-2 text-base font-medium text-gray-600 hover:text-basil-500"
               >
                 Blog
-              </Link>
+              </a>
               
               <Link
                 to="/about"
@@ -301,7 +288,6 @@ const Navbar = () => {
                 Contact
               </Link>
               
-              {/* Mobile CTA Buttons */}
               <div className="pt-4 space-y-3">
                 <Button 
                   variant="outline" 
