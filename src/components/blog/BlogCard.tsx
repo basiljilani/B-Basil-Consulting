@@ -15,20 +15,20 @@ const BlogCard = ({ post, featured = false, className }: BlogCardProps) => {
     <Link
       to={`/blog/${post.id}`}
       className={cn(
-        "block group",
+        "block group h-full",
         className
       )}
     >
       <div className={cn(
         "bg-white border border-gray-100 rounded-xl overflow-hidden transition-all duration-300 h-full",
         "hover:shadow-lg hover:-translate-y-1",
-        featured ? "shadow-md" : "",
-        featured ? "flex flex-col md:flex-row" : ""
+        featured ? "shadow-md" : "shadow-sm",
+        featured ? "flex flex-col lg:flex-row" : ""
       )}>
         {/* Color Band */}
         <div className={cn(
           "h-2 bg-gradient-to-r from-basil-400 to-basil-500",
-          featured ? "w-full md:w-2 md:h-auto" : ""
+          featured ? "w-full lg:w-2 lg:h-auto" : ""
         )} />
         
         <div className={cn(
@@ -46,7 +46,7 @@ const BlogCard = ({ post, featured = false, className }: BlogCardProps) => {
           
           <h3 className={cn(
             "font-bold transition-colors group-hover:text-basil-500 tracking-tight",
-            featured ? "text-2xl md:text-3xl mb-4" : "text-xl mb-3"
+            featured ? "text-2xl lg:text-3xl mb-4" : "text-xl mb-3"
           )}>
             {post.title}
           </h3>
@@ -54,7 +54,7 @@ const BlogCard = ({ post, featured = false, className }: BlogCardProps) => {
           {(!featured || (featured && post.excerpt)) && (
             <p className={cn(
               "text-muted-foreground line-clamp-2 mb-5",
-              featured ? "text-base md:text-lg" : "text-sm"
+              featured ? "text-base lg:text-lg" : "text-sm"
             )}>
               {post.excerpt}
             </p>
