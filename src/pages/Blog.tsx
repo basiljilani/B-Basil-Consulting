@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import Container from "@/components/ui/container";
 import BlogList from "@/components/blog/BlogList";
 import BlogHeader from "@/components/blog/BlogHeader";
+import BlogHero from "@/components/blog/BlogHero";
 
 const Blog = () => {
   const [activeCategory, setActiveCategory] = useState("All");
@@ -13,7 +14,8 @@ const Blog = () => {
   return (
     <div className="flex flex-col min-h-screen bg-gray-50">
       <Navbar />
-      <main className="flex-grow pt-16 pb-20">
+      <BlogHero />
+      <main className="flex-grow py-16">
         <Container>
           <BlogHeader 
             activeCategory={activeCategory}
