@@ -1,5 +1,5 @@
 
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, TrendingUp, Brain, BarChart3 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import Container from "@/components/ui/container";
@@ -11,6 +11,18 @@ const Hero = () => {
     if (featuresElement) {
       featuresElement.scrollIntoView({ behavior: 'smooth' });
     }
+  };
+
+  const statsVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: (i: number) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: 0.3 + i * 0.2,
+        duration: 0.6,
+      }
+    })
   };
 
   return (
@@ -59,11 +71,7 @@ const Hero = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             className="text-left"
-          >
-            <span className="inline-block mb-4 px-4 py-1.5 text-sm font-medium bg-basil-50 text-basil-700 rounded-full border border-basil-100">
-              Data-Driven Decisions
-            </span>
-            
+          >            
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight text-gray-900">
               Turning <span className="inline-block relative">
                 Data
@@ -119,64 +127,138 @@ const Hero = () => {
             </motion.div>
           </motion.div>
           
-          {/* Right image column */}
+          {/* Right stats column replacing the image */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.3, duration: 0.7 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 0.7 }}
             className="relative"
           >
-            <div className="relative rounded-2xl overflow-hidden shadow-xl">
+            <div className="grid grid-cols-2 gap-4">
+              {/* AI Adoption Stat */}
               <motion.div
-                className="absolute inset-0 bg-gradient-to-br from-basil-500/20 to-basil-600/30 mix-blend-multiply z-10"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.8, duration: 1 }}
-              />
-              <img
-                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80"
-                alt="Data visualization"
-                className="w-full h-full object-cover"
-              />
+                custom={0}
+                variants={statsVariants}
+                initial="hidden"
+                animate="visible"
+                className="glass-card rounded-xl p-6 shadow-lg border border-basil-100 bg-white/90"
+              >
+                <div className="flex items-center mb-3">
+                  <div className="rounded-full bg-basil-50 w-12 h-12 flex items-center justify-center mr-3">
+                    <Brain className="h-6 w-6 text-basil-500" />
+                  </div>
+                  <h3 className="font-semibold text-gray-800">AI Adoption</h3>
+                </div>
+                
+                <div className="mt-2">
+                  <motion.div
+                    initial={{ width: 0 }}
+                    animate={{ width: "83%" }}
+                    transition={{ delay: 1, duration: 1 }}
+                    className="h-2 bg-basil-500 rounded-full"
+                  />
+                </div>
+                
+                <div className="mt-3 flex justify-between items-baseline">
+                  <span className="text-3xl font-bold text-gray-900">83%</span>
+                  <span className="text-sm text-basil-600 flex items-center">
+                    <TrendingUp className="h-4 w-4 mr-1" />
+                    +24% YoY
+                  </span>
+                </div>
+                
+                <p className="mt-3 text-sm text-gray-600">
+                  of enterprises implementing AI solutions reported improved efficiency
+                </p>
+              </motion.div>
+              
+              {/* Fintech Growth Stat */}
+              <motion.div
+                custom={1}
+                variants={statsVariants}
+                initial="hidden"
+                animate="visible"
+                className="glass-card rounded-xl p-6 shadow-lg border border-basil-100 bg-white/90"
+              >
+                <div className="flex items-center mb-3">
+                  <div className="rounded-full bg-basil-50 w-12 h-12 flex items-center justify-center mr-3">
+                    <BarChart3 className="h-6 w-6 text-basil-500" />
+                  </div>
+                  <h3 className="font-semibold text-gray-800">Fintech Growth</h3>
+                </div>
+                
+                <div className="mt-2">
+                  <div className="flex gap-1 h-20">
+                    {[35, 42, 38, 52, 56, 68, 76].map((height, i) => (
+                      <motion.div
+                        key={i}
+                        initial={{ height: 0 }}
+                        animate={{ height: `${height}%` }}
+                        transition={{ delay: 1 + i * 0.1, duration: 0.8 }}
+                        className="flex-1 bg-basil-500 rounded-t-sm"
+                      />
+                    ))}
+                  </div>
+                </div>
+                
+                <div className="mt-3 flex justify-between items-baseline">
+                  <span className="text-3xl font-bold text-gray-900">$764B</span>
+                  <span className="text-sm text-basil-600 flex items-center">
+                    <TrendingUp className="h-4 w-4 mr-1" />
+                    +21.4%
+                  </span>
+                </div>
+                
+                <p className="mt-3 text-sm text-gray-600">
+                  global fintech market size by 2025, compound annual growth rate
+                </p>
+              </motion.div>
+              
+              {/* Data ROI Stat */}
+              <motion.div
+                custom={2}
+                variants={statsVariants}
+                initial="hidden"
+                animate="visible"
+                className="glass-card rounded-xl p-6 shadow-lg border border-basil-100 bg-white/90 col-span-2"
+              >
+                <div className="flex items-center mb-4">
+                  <div className="rounded-full bg-basil-50 w-12 h-12 flex items-center justify-center mr-3">
+                    <TrendingUp className="h-6 w-6 text-basil-500" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-gray-800">Data Investment ROI</h3>
+                    <p className="text-sm text-gray-600">Companies that invest in data analytics see higher returns</p>
+                  </div>
+                </div>
+                
+                <div className="grid grid-cols-3 gap-3 mt-2">
+                  {[5.2, 7.8, 11.3].map((value, i) => (
+                    <motion.div
+                      key={i}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 1.5 + i * 0.2, duration: 0.5 }}
+                      className="p-3 rounded-lg text-center bg-gray-50"
+                    >
+                      <div className="text-xl font-bold text-basil-600">{value}x</div>
+                      <div className="text-xs text-gray-500">
+                        {i === 0 ? 'Minimal' : i === 1 ? 'Average' : 'Advanced'} 
+                        <br />Investment
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </motion.div>
             </div>
             
             <motion.div
-              className="absolute -bottom-6 -left-6 bg-white rounded-lg shadow-lg p-4 max-w-xs"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1, duration: 0.6 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 2, duration: 0.8 }}
+              className="absolute -bottom-4 -right-4 text-xs bg-basil-600 text-white py-1 px-2 rounded-md"
             >
-              <div className="flex items-center space-x-3">
-                <div className="flex-shrink-0 h-10 w-10 rounded-full bg-basil-500 flex items-center justify-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5 text-white">
-                    <path d="M15.98 1.804a1 1 0 00-1.96 0l-.24 1.192a1 1 0 01-.784.785l-1.192.238a1 1 0 000 1.962l1.192.238a1 1 0 01.785.785l.238 1.192a1 1 0 001.962 0l.238-1.192a1 1 0 01.785-.785l1.192-.238a1 1 0 000-1.962l-1.192-.238a1 1 0 01-.785-.785l-.238-1.192zM6.949 5.684a1 1 0 00-1.898 0l-.683 2.051a1 1 0 01-.633.633l-2.051.683a1 1 0 000 1.898l2.051.684a1 1 0 01.633.632l.683 2.051a1 1 0 001.898 0l.683-2.051a1 1 0 01.633-.633l2.051-.683a1 1 0 000-1.898l-2.051-.683a1 1 0 01-.633-.633L6.95 5.684z" />
-                  </svg>
-                </div>
-                <div>
-                  <div className="font-medium text-gray-900">98% Success Rate</div>
-                  <div className="text-xs text-gray-500">Based on client outcomes</div>
-                </div>
-              </div>
-            </motion.div>
-            
-            <motion.div
-              className="absolute -top-6 -right-6 bg-white rounded-lg shadow-lg p-4 max-w-xs"
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.2, duration: 0.6 }}
-            >
-              <div className="flex items-center space-x-3">
-                <div className="flex-shrink-0 h-10 w-10 rounded-full bg-basil-500 flex items-center justify-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5 text-white">
-                    <path fillRule="evenodd" d="M10 1a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 0110 1zM5.05 3.05a.75.75 0 011.06 0l1.062 1.06a.75.75 0 11-1.061 1.061L5.05 4.11a.75.75 0 010-1.06zM15.95 3.05a.75.75 0 010 1.06l-1.06 1.062a.75.75 0 01-1.062-1.061l1.061-1.06a.75.75 0 011.06 0zM3 10a.75.75 0 01.75-.75h1.5a.75.75 0 010 1.5h-1.5A.75.75 0 013 10zM14.75 9.25a.75.75 0 000 1.5h1.5a.75.75 0 000-1.5h-1.5z" />
-                    <path fillRule="evenodd" d="M7.5 10a2.5 2.5 0 115 0 2.5 2.5 0 01-5 0zm2.5-4a4 4 0 100 8 4 4 0 000-8z" />
-                  </svg>
-                </div>
-                <div>
-                  <div className="font-medium text-gray-900">270+ Projects</div>
-                  <div className="text-xs text-gray-500">Successfully completed</div>
-                </div>
-              </div>
+              Source: Industry Reports 2023
             </motion.div>
           </motion.div>
         </div>
