@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { MapPin, Phone, Mail, Send } from "lucide-react";
 import { toast } from "sonner";
+import emailjs from '@emailjs/browser';
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Container from "@/components/ui/container";
@@ -46,12 +47,28 @@ const Contact = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
   
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    setTimeout(() => {
+    try {
+      // Replace these with your actual EmailJS service details
+      const templateParams = {
+        to_email: 'info@basilconsulting.net',
+        from_name: formData.name,
+        from_email: formData.email,
+        company: formData.company,
+        subject: formData.subject,
+        message: formData.message
+      };
+
+      await emailjs.send(
+        'YOUR_SERVICE_ID', // Replace with your EmailJS service ID
+        'YOUR_TEMPLATE_ID', // Replace with your EmailJS template ID
+        templateParams,
+        'YOUR_PUBLIC_KEY' // Replace with your EmailJS public key
+      );
+
       toast.success("Your message has been sent successfully!");
       setFormData({
         name: "",
@@ -60,8 +77,12 @@ const Contact = () => {
         subject: "",
         message: ""
       });
+    } catch (error) {
+      console.error('Error sending email:', error);
+      toast.error("Failed to send message. Please try again later.");
+    } finally {
       setIsSubmitting(false);
-    }, 1500);
+    }
   };
 
   return (
