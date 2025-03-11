@@ -186,12 +186,13 @@ const DataInfrastructure = () => {
         </section>
         
         {/* Technologies Section */}
-        <section className="py-16 md:py-24">
+        <section className="py-16 md:py-24 bg-black">
           <Container>
             <SectionHeading 
               title="Core Technologies" 
               subtitle="We leverage the latest data infrastructure technologies to build systems that scale with your business needs." 
               centered
+              className="text-white"
             />
             
             <motion.div 
@@ -222,13 +223,30 @@ const DataInfrastructure = () => {
                       }
                     }
                   }}
-                  className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow"
+                  whileHover={{
+                    scale: 1.02,
+                    transition: { duration: 0.2 }
+                  }}
+                  className="relative group"
                 >
-                  <div className="h-12 w-12 rounded-lg bg-basil-50 flex items-center justify-center text-basil-600 mb-4">
-                    {tech.icon}
+                  <div className="absolute inset-0 bg-gradient-to-br from-basil-500/20 via-basil-500/10 to-transparent rounded-2xl blur-xl transition-opacity group-hover:opacity-75" />
+                  <div className="relative p-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl h-full transition-all duration-300 group-hover:border-basil-500/50">
+                    <div className="h-12 w-12 rounded-xl bg-gradient-to-br from-basil-500 to-basil-600 flex items-center justify-center text-white mb-4 transition-transform group-hover:scale-110">
+                      {tech.icon}
+                    </div>
+                    <h3 className="text-xl font-semibold mb-3 text-white group-hover:text-basil-500 transition-colors">
+                      {tech.title}
+                    </h3>
+                    <p className="text-gray-400 group-hover:text-gray-300 transition-colors">
+                      {tech.description}
+                    </p>
+                    <motion.div
+                      className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-basil-500 to-basil-600"
+                      initial={{ width: 0 }}
+                      whileInView={{ width: "100%" }}
+                      transition={{ duration: 0.5, delay: index * 0.1 }}
+                    />
                   </div>
-                  <h3 className="text-xl font-semibold mb-3">{tech.title}</h3>
-                  <p className="text-gray-600">{tech.description}</p>
                 </motion.div>
               ))}
             </motion.div>
