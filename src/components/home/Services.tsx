@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import Container from "@/components/ui/container";
 import SectionHeading from "@/components/ui/section-heading";
@@ -50,7 +50,7 @@ const Services = () => {
   const [activeService, setActiveService] = useState(services[0].id);
 
   return (
-    <section className="section-padding">
+    <section className="harmony-section section-padding">
       <Container>
         <SectionHeading
           title="Our Services"
@@ -61,17 +61,26 @@ const Services = () => {
         <div className="flex flex-col lg:flex-row gap-8 mt-12">
           {/* Service Navigation */}
           <div className="lg:w-1/3">
-            <div className="bg-gray-50 p-1 rounded-xl">
-              {services.map((service) => (
-                <button
+            <motion.div 
+              className="bg-gray-50 p-2 rounded-xl" 
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              {services.map((service, index) => (
+                <motion.button
                   key={service.id}
                   onClick={() => setActiveService(service.id)}
                   className={cn(
-                    "w-full text-left p-4 rounded-lg mb-1 transition-all",
+                    "w-full text-left p-4 rounded-lg mb-2 transition-all",
                     activeService === service.id
-                      ? "bg-white shadow-md" 
-                      : "hover:bg-white/50"
+                      ? "bg-white shadow-md border-l-4 border-basil-500" 
+                      : "hover:bg-white/50 border-l-4 border-transparent"
                   )}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1, duration: 0.4 }}
                 >
                   <h3 className={cn(
                     "text-lg font-medium",
@@ -82,52 +91,91 @@ const Services = () => {
                   <p className="text-sm text-muted-foreground mt-1">
                     {service.description}
                   </p>
-                </button>
+                </motion.button>
               ))}
-            </div>
+            </motion.div>
           </div>
           
           {/* Service Details */}
-          <div className="lg:w-2/3 bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
-            {services.map((service) => (
-              <div
-                key={service.id}
-                className={cn(
-                  "p-8",
-                  activeService === service.id ? "block" : "hidden"
-                )}
-              >
-                <h3 className="text-2xl font-semibold text-gradient mb-4">
-                  {service.title}
-                </h3>
-                <p className="text-gray-600 mb-6">
-                  {service.description}
-                </p>
-                
-                <h4 className="font-medium mb-4">Key Offerings:</h4>
-                <ul className="space-y-3">
-                  {service.details.map((detail, index) => (
-                    <li key={index} className="flex items-start gap-3">
-                      <div className="rounded-full bg-basil-100 p-1 mt-0.5">
-                        <ChevronRight className="h-3 w-3 text-basil-600" />
-                      </div>
-                      <span>{detail}</span>
-                    </li>
-                  ))}
-                </ul>
-                
-                <div className="mt-8">
-                  <Link
-                    to="/services"
-                    className="inline-flex items-center text-basil-500 hover:text-basil-600 font-medium"
+          <motion.div 
+            className="lg:w-2/3 bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden"
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            <AnimatePresence mode="wait">
+              {services.map((service) => (
+                service.id === activeService && (
+                  <motion.div
+                    key={service.id}
+                    className="p-8"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.3 }}
                   >
-                    Learn more
-                    <ChevronRight className="ml-1 h-4 w-4" />
-                  </Link>
-                </div>
-              </div>
-            ))}
-          </div>
+                    <motion.h3 
+                      className="text-2xl font-semibold text-gradient mb-4"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ duration: 0.3, delay: 0.1 }}
+                    >
+                      {service.title}
+                    </motion.h3>
+                    <motion.p 
+                      className="text-gray-600 mb-6"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ duration: 0.3, delay: 0.2 }}
+                    >
+                      {service.description}
+                    </motion.p>
+                    
+                    <motion.h4 
+                      className="font-medium mb-4"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ duration: 0.3, delay: 0.3 }}
+                    >
+                      Key Offerings:
+                    </motion.h4>
+                    <ul className="space-y-3">
+                      {service.details.map((detail, index) => (
+                        <motion.li 
+                          key={index} 
+                          className="flex items-start gap-3"
+                          initial={{ opacity: 0, x: -10 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ duration: 0.3, delay: 0.4 + index * 0.1 }}
+                        >
+                          <div className="rounded-full bg-basil-100 p-1 mt-0.5">
+                            <ChevronRight className="h-3 w-3 text-basil-600" />
+                          </div>
+                          <span>{detail}</span>
+                        </motion.li>
+                      ))}
+                    </ul>
+                    
+                    <motion.div 
+                      className="mt-8"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ duration: 0.3, delay: 0.8 }}
+                    >
+                      <Link
+                        to="/services"
+                        className="inline-flex items-center text-basil-500 hover:text-basil-600 font-medium group"
+                      >
+                        Learn more
+                        <ChevronRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                      </Link>
+                    </motion.div>
+                  </motion.div>
+                )
+              ))}
+            </AnimatePresence>
+          </motion.div>
         </div>
       </Container>
     </section>
