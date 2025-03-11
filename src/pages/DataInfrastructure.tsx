@@ -297,6 +297,7 @@ const DataInfrastructure = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
+                className="space-y-6"
               >
                 <h2 className="text-3xl md:text-4xl font-bold mb-6">
                   Business Benefits of Robust Data Infrastructure
@@ -305,29 +306,39 @@ const DataInfrastructure = () => {
                   A well-designed data infrastructure does more than store data—it transforms how your business operates.
                 </p>
                 
-                <div className="space-y-4">
+                <div className="space-y-6">
                   {benefits.map((benefit, index) => (
                     <motion.div
                       key={index}
-                      initial={{ opacity: 0, y: 10 }}
+                      initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
-                      transition={{ duration: 0.3, delay: index * 0.1 }}
-                      className="flex gap-4"
+                      transition={{ duration: 0.5, delay: index * 0.1 }}
+                      className="group relative overflow-hidden rounded-xl bg-white p-6 shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300"
                     >
-                      <div className="rounded-full bg-blue-100 p-1 mt-1 flex-shrink-0">
-                        <CheckCircle2 className="h-5 w-5 text-blue-600" />
+                      <div className="absolute inset-0 bg-gradient-to-r from-basil-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                      <div className="relative z-10">
+                        <div className="flex items-start gap-4">
+                          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-basil-500/10 text-basil-600">
+                            <CheckCircle2 className="h-5 w-5" />
+                          </div>
+                          <div>
+                            <h3 className="font-semibold text-xl mb-2 text-gray-900 group-hover:text-basil-600 transition-colors">
+                              {benefit.title}
+                            </h3>
+                            <p className="text-muted-foreground leading-relaxed">
+                              {benefit.description}
+                            </p>
+                          </div>
+                        </div>
                       </div>
-                      <div>
-                        <h3 className="text-xl font-medium mb-1">{benefit.title}</h3>
-                        <p className="text-gray-600">{benefit.description}</p>
-                      </div>
+                      <div className="absolute bottom-0 left-0 h-1 w-0 bg-gradient-to-r from-basil-500 to-basil-600 group-hover:w-full transition-all duration-300" />
                     </motion.div>
                   ))}
                 </div>
                 
-                <div className="mt-8">
-                  <Button asChild className="rounded-full">
+                <div className="mt-10">
+                  <Button asChild size="lg" className="rounded-full">
                     <Link to="/contact">
                       Get Started
                       <ArrowRight className="ml-2 h-4 w-4" />
@@ -343,58 +354,42 @@ const DataInfrastructure = () => {
                 transition={{ duration: 0.5 }}
                 className="relative"
               >
-                <div className="relative rounded-xl overflow-hidden border border-gray-100 shadow-lg">
-                  <div className="aspect-video bg-gradient-to-r from-blue-100 to-blue-50 p-8 relative">
-                    <motion.div
-                      className="absolute inset-0 flex items-center justify-center"
-                      initial={{ opacity: 0 }}
-                      whileInView={{ opacity: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: 0.3 }}
-                    >
-                      <div className="relative">
-                        <motion.div
-                          animate={{
-                            scale: [1, 1.2, 1],
-                            rotateY: [0, 180, 360],
-                            opacity: [0.7, 1, 0.7]
-                          }}
-                          transition={{
-                            repeat: Infinity,
-                            duration: 8,
-                          }}
-                          className="absolute inset-0 bg-blue-300 rounded-full blur-xl opacity-20"
-                          style={{ height: '200px', width: '200px', top: '-50px', left: '-50px' }}
-                        />
-                        
-                        <motion.div
-                          className="grid grid-cols-3 gap-4"
-                          initial={{ opacity: 0 }}
-                          whileInView={{ opacity: 1 }}
-                          viewport={{ once: true }}
-                          transition={{ delay: 0.5 }}
-                        >
-                          {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((item) => (
-                            <motion.div
-                              key={item}
-                              animate={{
-                                scale: [1, item % 3 === 0 ? 1.1 : 1, 1],
-                                opacity: [0.7, 1, 0.7]
-                              }}
-                              transition={{
-                                repeat: Infinity,
-                                duration: 4 + (item % 3),
-                                delay: item * 0.2
-                              }}
-                              className="h-12 w-12 bg-white rounded-lg shadow-sm flex items-center justify-center"
-                            >
-                              <div className={`h-6 w-6 rounded-md ${item % 3 === 0 ? 'bg-blue-400' : item % 3 === 1 ? 'bg-blue-300' : 'bg-blue-200'}`}></div>
-                            </motion.div>
-                          ))}
-                        </motion.div>
-                      </div>
-                    </motion.div>
-                  </div>
+                <div className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-blue-50 to-blue-100 p-8">
+                  <motion.div
+                    animate={{
+                      scale: [1, 1.02, 1],
+                      rotate: [0, 1, 0],
+                    }}
+                    transition={{
+                      repeat: Infinity,
+                      duration: 8,
+                    }}
+                    className="grid grid-cols-3 gap-4"
+                  >
+                    {[...Array(9)].map((_, index) => (
+                      <motion.div
+                        key={index}
+                        animate={{
+                          scale: [1, index % 3 === 1 ? 1.1 : 1, 1],
+                          opacity: [0.7, 1, 0.7],
+                        }}
+                        transition={{
+                          repeat: Infinity,
+                          duration: 4 + (index % 3),
+                          delay: index * 0.2,
+                        }}
+                        className="aspect-square rounded-xl bg-white shadow-sm flex items-center justify-center"
+                      >
+                        <div className={`h-8 w-8 rounded-lg ${
+                          index % 3 === 0 ? 'bg-basil-500/20' : 
+                          index % 3 === 1 ? 'bg-basil-400/20' : 
+                          'bg-basil-300/20'
+                        }`} />
+                      </motion.div>
+                    ))}
+                  </motion.div>
+                  
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/50 to-transparent pointer-events-none" />
                 </div>
               </motion.div>
             </div>
