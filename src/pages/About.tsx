@@ -293,9 +293,9 @@ const About = () => {
                 Partner with Basil Consulting and transform your business with data-driven insights and innovative solutions that cultivate growth beyond isolated platforms.
               </p>
               <Button asChild size="lg" className="bg-white text-orange-600 hover:bg-orange-50">
-                <Link to="/contact">
+                <a href="mailto:info@basilconsulting.com">
                   Start Your Journey
-                </Link>
+                </a>
               </Button>
             </div>
           </Container>

@@ -83,10 +83,10 @@ const SecurityCompliance = () => {
                   </p>
                   <div className="flex flex-wrap gap-3">
                     <Button asChild size="lg" className="rounded-full">
-                      <Link to="/contact">
+                      <a href="mailto:info@basilconsulting.com">
                         Request a Security Assessment
                         <ArrowRight className="ml-2 h-4 w-4" />
-                      </Link>
+                      </a>
                     </Button>
                     <Button asChild variant="outline" size="lg" className="rounded-full bg-white text-gray-900 border-white hover:bg-transparent hover:text-white">
                       <Link to="/services">
@@ -225,10 +225,10 @@ const SecurityCompliance = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button asChild size="lg" className="rounded-full">
-                  <Link to="/contact">
+                  <a href="mailto:info@basilconsulting.com">
                     Get a Security Assessment
                     <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
+                  </a>
                 </Button>
                 <Button asChild variant="outline" size="lg" className="rounded-full bg-white text-gray-900 border-white hover:bg-transparent hover:text-white">
                   <Link to="/services">

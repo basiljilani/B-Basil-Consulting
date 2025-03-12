@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import Container from "@/components/ui/container";
-import { Mail, Linkedin, Twitter, Facebook, Instagram } from "lucide-react";
+import { Mail, Linkedin } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -24,40 +24,13 @@ const Footer = () => {
             </p>
             <div className="flex space-x-4">
               <a 
-                href="https://linkedin.com" 
+                href="https://www.linkedin.com/company/basil-consulting-net" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-gray-500 hover:text-basil-500 transition-colors"
                 aria-label="LinkedIn"
               >
                 <Linkedin size={20} />
-              </a>
-              <a 
-                href="https://twitter.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-gray-500 hover:text-basil-500 transition-colors"
-                aria-label="Twitter"
-              >
-                <Twitter size={20} />
-              </a>
-              <a 
-                href="https://facebook.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-gray-500 hover:text-basil-500 transition-colors"
-                aria-label="Facebook"
-              >
-                <Facebook size={20} />
-              </a>
-              <a 
-                href="https://instagram.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-gray-500 hover:text-basil-500 transition-colors"
-                aria-label="Instagram"
-              >
-                <Instagram size={20} />
               </a>
             </div>
           </div>
@@ -82,8 +55,8 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/products" className="text-gray-600 hover:text-basil-500 transition-colors">
-                  Products
+                <Link to="/solutions/analytics-insights" className="text-gray-600 hover:text-basil-500 transition-colors">
+                  Solutions
                 </Link>
               </li>
               <li>

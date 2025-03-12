@@ -1,4 +1,3 @@
-
 import { ArrowRight, BarChart3, Database, LineChart, PieChart, Server, Shield } from "lucide-react";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
@@ -138,10 +137,10 @@ const Services = () => {
                 Contact us today to discuss how our services can help you achieve your business goals.
               </p>
               <Button asChild size="lg" variant="secondary" className="rounded-full">
-                <Link to="/contact">
+                <a href="mailto:info@basilconsulting.com">
                   Get in Touch
                   <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
+                </a>
               </Button>
             </div>
           </Container>

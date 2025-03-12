@@ -4,13 +4,18 @@ import Container from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 import { useEffect, useRef } from "react";
 import Chart from 'chart.js/auto';
+import { motion } from "framer-motion";
+import "./Hero.css";
 
 const Hero = () => {
   const aiChartRef = useRef(null);
   const transformationChartRef = useRef(null);
 
   const scrollToFeatures = () => {
-    document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' });
+    const featuresSection = document.getElementById('features');
+    if (featuresSection) {
+      featuresSection.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   // Initialize charts
@@ -301,10 +306,10 @@ const Hero = () => {
             
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <Button asChild size="lg" className="bg-orange-500 hover:bg-orange-600 shadow-lg">
-                <Link to="/contact">
+                <a href="mailto:info@basilconsulting.com">
                   Start Your Journey
                   <ArrowRight className="ml-2 h-5 w-5" />
-                </Link>
+                </a>
               </Button>
               <Button 
                 variant="outline" 
@@ -318,65 +323,23 @@ const Hero = () => {
           </div>
           
           {/* Right stats column - 6 columns wide */}
-          <div className="lg:col-span-6 space-y-5">
-            {/* AI Impact Case Study */}
-            <div className="case-study-card p-5">
-              <div className="flex justify-between items-start">
-                <div>
-                  <h2 className="card-title">AI Economic Impact</h2>
-                  <p className="card-subtitle">Global projected value creation</p>
-                </div>
-                <span className="source-tag">Source: McKinsey Global Institute</span>
-              </div>
+          <div className="lg:col-span-6">
+            <div className="relative">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="relative z-10"
+              >
+                <img 
+                  src="/lovable-uploads/c9a9c9a9-c9a9-c9a9-c9a9-c9a9c9a9c9a9.png" 
+                  alt="Data visualization" 
+                  className="w-full h-auto rounded-lg shadow-xl"
+                />
+              </motion.div>
               
-              <div className="chart-container">
-                <canvas ref={aiChartRef}></canvas>
-              </div>
-              
-              <div className="stats-grid">
-                <div className="stat-item">
-                  <p className="stat-value">$13T</p>
-                  <p className="stat-label">By 2030</p>
-                </div>
-                <div className="stat-item">
-                  <p className="stat-value text-orange-500">+550%</p>
-                  <p className="stat-label">Growth</p>
-                </div>
-                <div className="stat-item">
-                  <p className="stat-value">16%</p>
-                  <p className="stat-label">Of global GDP</p>
-                </div>
-              </div>
-            </div>
-            
-            {/* Digital Transformation Case Study */}
-            <div className="case-study-card p-5">
-              <div className="flex justify-between items-start">
-                <div>
-                  <h2 className="card-title">Digital Transformation ROI</h2>
-                  <p className="card-subtitle">Growth multiplier by digital maturity level</p>
-                </div>
-                <span className="source-tag">Source: Deloitte Digital Transformation Index</span>
-              </div>
-              
-              <div className="chart-container">
-                <canvas ref={transformationChartRef}></canvas>
-              </div>
-              
-              <div className="stats-grid">
-                <div className="stat-item">
-                  <p className="stat-value">5.8x</p>
-                  <p className="stat-label">Growth</p>
-                </div>
-                <div className="stat-item">
-                  <p className="stat-value">4.1x</p>
-                  <p className="stat-label">Profit</p>
-                </div>
-                <div className="stat-item">
-                  <p className="stat-value">3.7x</p>
-                  <p className="stat-label">Efficiency</p>
-                </div>
-              </div>
+              <div className="absolute -bottom-6 -right-6 w-64 h-64 bg-basil-100 rounded-full -z-10"></div>
+              <div className="absolute -top-6 -left-6 w-32 h-32 bg-orange-100 rounded-full -z-10"></div>
             </div>
           </div>
         </div>

@@ -134,10 +134,10 @@ const CustomSolutions = () => {
                   We build transformative technology solutions that drive progress, efficiency, and innovation across industries.
                 </p>
                 <Button asChild size="lg" className="rounded-full">
-                  <Link to="/contact">
+                  <a href="mailto:info@basilconsulting.com">
                     Discuss Your Project
                     <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
+                  </a>
                 </Button>
               </motion.div>
             </div>

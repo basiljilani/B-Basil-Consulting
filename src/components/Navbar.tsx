@@ -200,17 +200,12 @@ const Navbar = () => {
               About Us
             </Link>
             
-            <Link
-              to="/contact"
-              className={cn(
-                "text-sm font-medium transition-colors",
-                location.pathname === "/contact"
-                  ? "text-basil-500"
-                  : "text-gray-600 hover:text-basil-500"
-              )}
+            <a 
+              href="mailto:info@basilconsulting.com"
+              className="text-sm font-medium text-gray-600 hover:text-basil-500 transition-colors"
             >
               Contact
-            </Link>
+            </a>
           </nav>
           
           <div className="hidden lg:flex items-center space-x-4">
@@ -220,8 +215,10 @@ const Navbar = () => {
             >
               Sign In
             </Button>
-            <Button className="bg-basil-500 hover:bg-basil-600">
-              Get Started
+            <Button asChild className="bg-basil-500 hover:bg-basil-600">
+              <a href="mailto:info@basilconsulting.com">
+                Get Started
+              </a>
             </Button>
           </div>
 
@@ -324,12 +321,12 @@ const Navbar = () => {
                 About Us
               </Link>
               
-              <Link
-                to="/contact"
+              <a
+                href="mailto:info@basilconsulting.com"
                 className="block py-2 text-base font-medium text-gray-600 hover:text-basil-500"
               >
                 Contact
-              </Link>
+              </a>
               
               <div className="pt-4 space-y-3">
                 <Button 
@@ -338,8 +335,10 @@ const Navbar = () => {
                 >
                   Sign In
                 </Button>
-                <Button className="w-full bg-basil-500 hover:bg-basil-600">
-                  Get Started
+                <Button asChild className="w-full bg-basil-500 hover:bg-basil-600">
+                  <a href="mailto:info@basilconsulting.com">
+                    Get Started
+                  </a>
                 </Button>
               </div>
             </div>
@@ -424,18 +423,17 @@ const Navbar = () => {
                 >
                   Services
                 </Link>
-                <Link
-                  to="/contact"
+                <a
+                  href="mailto:info@basilconsulting.com"
                   className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-basil-600 hover:bg-gray-50 rounded-md"
-                  onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Contact
-                </Link>
+                </a>
                 <div className="pt-4">
                   <Button asChild className="w-full">
-                    <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>
+                    <a href="mailto:info@basilconsulting.com">
                       Get Started
-                    </Link>
+                    </a>
                   </Button>
                 </div>
               </div>
