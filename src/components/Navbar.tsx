@@ -82,8 +82,8 @@ const Navbar = () => {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out bg-white",
         isScrolled 
-          ? "shadow-sm py-3" 
-          : "py-4"
+          ? "shadow-[0_4px_20px_-5px_rgba(0,0,0,0.1)] py-3" 
+          : "py-4 hover:shadow-[0_4px_20px_-5px_rgba(0,0,0,0.07)]"
       )}
     >
       <Container>
@@ -113,13 +113,13 @@ const Navbar = () => {
               </button>
               
               {solutionsDropdownOpen && (
-                <div className="absolute top-full left-0 mt-2 w-56 origin-top-left rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                <div className="absolute top-full left-0 mt-2 w-56 origin-top-left rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-none">
                   <div className="py-1">
                     {solutionsLinks.map((link) => (
                       <Link
                         key={link.name}
                         to={link.path}
-                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-basil-500 transition-colors"
                       >
                         {link.name}
                       </Link>
@@ -144,36 +144,17 @@ const Navbar = () => {
               </button>
               
               {resourcesDropdownOpen && (
-                <div className="absolute top-full left-0 mt-2 w-56 origin-top-left rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                <div className="absolute top-full left-0 mt-2 w-56 origin-top-left rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-none">
                   <div className="py-1">
-                    <Link 
-                      to="/resources/case-studies" 
-                      className="block px-4 py-3 text-gray-700 hover:bg-gray-100"
-                      onClick={() => setResourcesDropdownOpen(false)}
-                    >
-                      Case Studies
-                    </Link>
-                    <Link 
-                      to="/resources/white-papers" 
-                      className="block px-4 py-3 text-gray-700 hover:bg-gray-100"
-                      onClick={() => setResourcesDropdownOpen(false)}
-                    >
-                      White Papers
-                    </Link>
-                    <Link 
-                      to="/resources/documentation" 
-                      className="block px-4 py-3 text-gray-700 hover:bg-gray-100"
-                      onClick={() => setResourcesDropdownOpen(false)}
-                    >
-                      Documentation
-                    </Link>
-                    <Link 
-                      to="/resources/webinars" 
-                      className="block px-4 py-3 text-gray-700 hover:bg-gray-100"
-                      onClick={() => setResourcesDropdownOpen(false)}
-                    >
-                      Webinars
-                    </Link>
+                    {resourcesLinks.map((link) => (
+                      <Link
+                        key={link.name}
+                        to={link.path}
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-basil-500 transition-colors"
+                      >
+                        {link.name}
+                      </Link>
+                    ))}
                   </div>
                 </div>
               )}
@@ -183,24 +164,19 @@ const Navbar = () => {
               href="https://basilconsulting.substack.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm font-medium transition-colors text-gray-600 hover:text-basil-500"
+              className="text-sm font-medium text-gray-600 hover:text-basil-500 transition-colors"
             >
               Blog
             </a>
             
             <Link
               to="/about"
-              className={cn(
-                "text-sm font-medium transition-colors",
-                location.pathname === "/about"
-                  ? "text-basil-500"
-                  : "text-gray-600 hover:text-basil-500"
-              )}
+              className="text-sm font-medium text-gray-600 hover:text-basil-500 transition-colors"
             >
               About Us
             </Link>
             
-            <a 
+            <a
               href="mailto:info@basilconsulting.com"
               className="text-sm font-medium text-gray-600 hover:text-basil-500 transition-colors"
             >
@@ -212,20 +188,22 @@ const Navbar = () => {
             <Button 
               variant="outline" 
               className="border-basil-500 text-basil-500 hover:bg-basil-50"
+              asChild
             >
-              Sign In
+              <Link to="/signin">
+                Sign In
+              </Link>
             </Button>
-            <Button asChild className="bg-basil-500 hover:bg-basil-600">
+            <Button asChild className="bg-orange-500 hover:bg-orange-600 shadow-sm">
               <a href="mailto:info@basilconsulting.com">
                 Get Started
               </a>
             </Button>
           </div>
-
+          
           <button
-            className="lg:hidden p-2 text-gray-600"
             onClick={toggleMenu}
-            aria-label="Toggle menu"
+            className="lg:hidden p-2 rounded-md text-gray-600 hover:text-basil-500 hover:bg-gray-100 transition-colors"
           >
             {isMobileMenuOpen ? (
               <X className="h-6 w-6" />
@@ -234,116 +212,6 @@ const Navbar = () => {
             )}
           </button>
         </div>
-
-        {isMobileMenuOpen && (
-          <div className="lg:hidden mt-4 py-4 border-t border-gray-100 animate-fade-in">
-            <div className="space-y-4">
-              <div>
-                <button
-                  onClick={toggleSolutionsDropdown}
-                  className="flex items-center justify-between w-full py-2 text-base font-medium text-gray-600"
-                >
-                  Solutions
-                  <ChevronDown className={cn("h-4 w-4 transition-transform", solutionsDropdownOpen && "rotate-180")} />
-                </button>
-                
-                {solutionsDropdownOpen && (
-                  <div className="mt-2 pl-4 space-y-2">
-                    {solutionsLinks.map((link) => (
-                      <Link
-                        key={link.name}
-                        to={link.path}
-                        className="block py-2 text-sm text-gray-500 hover:text-basil-500"
-                      >
-                        {link.name}
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </div>
-              
-              <div>
-                <button
-                  onClick={toggleResourcesDropdown}
-                  className="flex items-center justify-between w-full py-2 text-base font-medium text-gray-600"
-                >
-                  Resources
-                  <ChevronDown className={cn("h-4 w-4 transition-transform", resourcesDropdownOpen && "rotate-180")} />
-                </button>
-                
-                {resourcesDropdownOpen && (
-                  <div className="mt-2 pl-4 space-y-2">
-                    <Link
-                      to="/resources/case-studies"
-                      className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-basil-600 hover:bg-gray-50 rounded-md"
-                      onClick={() => setResourcesDropdownOpen(false)}
-                    >
-                      Case Studies
-                    </Link>
-                    <Link
-                      to="/resources/white-papers"
-                      className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-basil-600 hover:bg-gray-50 rounded-md"
-                      onClick={() => setResourcesDropdownOpen(false)}
-                    >
-                      White Papers
-                    </Link>
-                    <Link
-                      to="/resources/documentation"
-                      className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-basil-600 hover:bg-gray-50 rounded-md"
-                      onClick={() => setResourcesDropdownOpen(false)}
-                    >
-                      Documentation
-                    </Link>
-                    <Link
-                      to="/resources/webinars"
-                      className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-basil-600 hover:bg-gray-50 rounded-md"
-                      onClick={() => setResourcesDropdownOpen(false)}
-                    >
-                      Webinars
-                    </Link>
-                  </div>
-                )}
-              </div>
-              
-              <a
-                href="https://basilconsulting.substack.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block py-2 text-base font-medium text-gray-600 hover:text-basil-500"
-              >
-                Blog
-              </a>
-              
-              <Link
-                to="/about"
-                className="block py-2 text-base font-medium text-gray-600 hover:text-basil-500"
-              >
-                About Us
-              </Link>
-              
-              <a
-                href="mailto:info@basilconsulting.com"
-                className="block py-2 text-base font-medium text-gray-600 hover:text-basil-500"
-              >
-                Contact
-              </a>
-              
-              <div className="pt-4 space-y-3">
-                <Button 
-                  variant="outline" 
-                  className="w-full border-basil-500 text-basil-500 hover:bg-basil-50"
-                >
-                  Sign In
-                </Button>
-                <Button asChild className="w-full bg-basil-500 hover:bg-basil-600">
-                  <a href="mailto:info@basilconsulting.com">
-                    Get Started
-                  </a>
-                </Button>
-              </div>
-            </div>
-          </div>
-        )}
       </Container>
 
       {/* Mobile menu */}
@@ -353,19 +221,35 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white"
+            className="lg:hidden bg-white shadow-[0_8px_16px_-4px_rgba(0,0,0,0.1)]"
           >
             <Container>
               <div className="pt-2 pb-4 space-y-1">
-                <Link
-                  to="/about"
-                  className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-basil-600 hover:bg-gray-50 rounded-md"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  About
-                </Link>
+                <div>
+                  <button
+                    onClick={toggleSolutionsDropdown}
+                    className="flex items-center justify-between w-full px-3 py-2 text-base font-medium text-gray-700 hover:text-basil-600 hover:bg-gray-50 rounded-md"
+                  >
+                    Solutions
+                    <ChevronDown className={`ml-1 h-4 w-4 transition-transform ${solutionsDropdownOpen ? 'rotate-180' : ''}`} />
+                  </button>
+                  
+                  {solutionsDropdownOpen && (
+                    <div className="pl-4">
+                      {solutionsLinks.map((link) => (
+                        <Link
+                          key={link.name}
+                          to={link.path}
+                          className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-basil-600 hover:bg-gray-50 rounded-md"
+                          onClick={() => setSolutionsDropdownOpen(false)}
+                        >
+                          {link.name}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
                 
-                {/* Mobile Resources Dropdown */}
                 <div>
                   <button
                     onClick={toggleResourcesDropdown}
@@ -377,60 +261,54 @@ const Navbar = () => {
                   
                   {resourcesDropdownOpen && (
                     <div className="pl-4">
-                      <Link
-                        to="/resources/case-studies"
-                        className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-basil-600 hover:bg-gray-50 rounded-md"
-                        onClick={() => setResourcesDropdownOpen(false)}
-                      >
-                        Case Studies
-                      </Link>
-                      <Link
-                        to="/resources/white-papers"
-                        className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-basil-600 hover:bg-gray-50 rounded-md"
-                        onClick={() => setResourcesDropdownOpen(false)}
-                      >
-                        White Papers
-                      </Link>
-                      <Link
-                        to="/resources/documentation"
-                        className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-basil-600 hover:bg-gray-50 rounded-md"
-                        onClick={() => setResourcesDropdownOpen(false)}
-                      >
-                        Documentation
-                      </Link>
-                      <Link
-                        to="/resources/webinars"
-                        className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-basil-600 hover:bg-gray-50 rounded-md"
-                        onClick={() => setResourcesDropdownOpen(false)}
-                      >
-                        Webinars
-                      </Link>
-                      <Link
-                        to="/blog"
-                        className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-basil-600 hover:bg-gray-50 rounded-md"
-                        onClick={() => setResourcesDropdownOpen(false)}
-                      >
-                        Blog
-                      </Link>
+                      {resourcesLinks.map((link) => (
+                        <Link
+                          key={link.name}
+                          to={link.path}
+                          className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-basil-600 hover:bg-gray-50 rounded-md"
+                          onClick={() => setResourcesDropdownOpen(false)}
+                        >
+                          {link.name}
+                        </Link>
+                      ))}
                     </div>
                   )}
                 </div>
                 
-                <Link
-                  to="/services"
+                <a
+                  href="https://basilconsulting.substack.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-basil-600 hover:bg-gray-50 rounded-md"
-                  onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  Services
+                  Blog
+                </a>
+                
+                <Link
+                  to="/about"
+                  className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-basil-600 hover:bg-gray-50 rounded-md"
+                >
+                  About Us
                 </Link>
+                
                 <a
                   href="mailto:info@basilconsulting.com"
                   className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-basil-600 hover:bg-gray-50 rounded-md"
                 >
                   Contact
                 </a>
-                <div className="pt-4">
-                  <Button asChild className="w-full">
+                
+                <div className="pt-4 space-y-3">
+                  <Button 
+                    variant="outline" 
+                    className="w-full border-basil-500 text-basil-500 hover:bg-basil-50"
+                    asChild
+                  >
+                    <Link to="/signin">
+                      Sign In
+                    </Link>
+                  </Button>
+                  <Button asChild className="w-full bg-orange-500 hover:bg-orange-600">
                     <a href="mailto:info@basilconsulting.com">
                       Get Started
                     </a>
