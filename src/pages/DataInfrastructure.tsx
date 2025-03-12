@@ -5,7 +5,11 @@ import {
   Server, 
   Cloud, 
   HardDrive, 
-  Network
+  Network,
+  ChartBar,
+  Timer,
+  TrendingDown,
+  Brain
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -63,10 +67,30 @@ const benefits = [
 ];
 
 const stats = [
-  { value: "68%", label: "of organizations struggle with data integration across multiple sources" },
-  { value: "73%", label: "of enterprise data goes unused for analytics and decision-making" },
-  { value: "3.8x", label: "higher ROI for companies with mature data infrastructure" },
-  { value: "47%", label: "reduction in time-to-insight with optimized data pipelines" }
+  {
+    value: "89%",
+    label: "of companies investing in data infrastructure report improved decision making",
+    icon: <ChartBar className="h-6 w-6" />,
+    source: "Gartner Data & Analytics Survey 2023"
+  },
+  {
+    value: "2.6x",
+    label: "faster time-to-market for companies with mature data infrastructure",
+    icon: <Timer className="h-6 w-6" />,
+    source: "McKinsey Digital Transformation Report"
+  },
+  {
+    value: "45%",
+    label: "reduction in operational costs through optimized data infrastructure",
+    icon: <TrendingDown className="h-6 w-6" />,
+    source: "Deloitte Digital Transformation Study"
+  },
+  {
+    value: "94%",
+    label: "of enterprises cite data infrastructure as critical for AI/ML initiatives",
+    icon: <Brain className="h-6 w-6" />,
+    source: "IDC Global Data Management Survey"
+  }
 ];
 
 const DataInfrastructure = () => {
@@ -228,26 +252,32 @@ const DataInfrastructure = () => {
               centered
             />
             
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-20">
               {stats.map((stat, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
+                  animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="bg-white p-6 rounded-xl border border-gray-100 text-center"
+                  className="relative group"
                 >
-                  <motion.p 
-                    className="text-3xl md:text-4xl font-bold text-basil-500 mb-2"
-                    initial={{ scale: 0.5 }}
-                    whileInView={{ scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ type: "spring", stiffness: 200, delay: 0.2 + index * 0.1 }}
-                  >
-                    {stat.value}
-                  </motion.p>
-                  <p className="text-gray-600">{stat.label}</p>
+                  <div className="absolute inset-0 bg-gradient-to-br from-basil-500/20 via-basil-500/10 to-transparent rounded-xl blur-xl transition-opacity group-hover:opacity-75" />
+                  <div className="relative p-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl h-full transition-all duration-300 hover:border-basil-500/50">
+                    <div className="flex items-center gap-4 mb-4">
+                      <div className="h-12 w-12 rounded-lg bg-gradient-to-br from-basil-500 to-basil-600 flex items-center justify-center text-white">
+                        {stat.icon}
+                      </div>
+                      <div className="text-3xl font-bold text-white">
+                        {stat.value}
+                      </div>
+                    </div>
+                    <p className="text-gray-300 mb-2">
+                      {stat.label}
+                    </p>
+                    <p className="text-sm text-gray-400 italic">
+                      Source: {stat.source}
+                    </p>
+                  </div>
                 </motion.div>
               ))}
             </div>
