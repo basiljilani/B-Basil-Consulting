@@ -14,6 +14,7 @@ import CustomSolutions from "./pages/CustomSolutions";
 import DataInfrastructure from "./pages/DataInfrastructure";
 import SecurityCompliance from "./pages/SecurityCompliance";
 import AnalyticsInsights from "./pages/AnalyticsInsights";
+import "./App.css";
 
 const queryClient = new QueryClient();
 
