@@ -100,52 +100,33 @@ const DataInfrastructure = () => {
                 </div>
               </div>
               <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
                 transition={{ duration: 0.5 }}
                 className="relative"
               >
-                <div className="bg-white p-8 rounded-3xl shadow-xl">
-                  <motion.div
-                    animate={{ 
-                      y: [0, -10, 0],
-                    }}
-                    transition={{ 
-                      repeat: Infinity,
-                      duration: 4
-                    }}
-                    className="relative z-10"
-                  >
+                <div className="bg-white/10 backdrop-blur-sm p-8 rounded-3xl border border-white/20">
+                  <div className="relative z-10">
                     <div className="flex items-center justify-center">
-                      <div className="relative">
-                        <Database className="h-20 w-20 text-blue-500" />
-                        <motion.div
-                          animate={{
-                            scale: [1, 1.05, 1],
-                            opacity: [0.7, 0.9, 0.7]
-                          }}
-                          transition={{
-                            repeat: Infinity,
-                            duration: 2
-                          }}
-                          className="absolute inset-0 bg-blue-200 rounded-full -z-10 blur-lg"
-                        />
-                      </div>
+                      <motion.div
+                        initial={{ scale: 0.95 }}
+                        animate={{ scale: 1 }}
+                        transition={{ duration: 0.5 }}
+                        className="relative"
+                      >
+                        <Database className="h-20 w-20 text-basil-500" />
+                        <div className="absolute inset-0 bg-basil-500/20 rounded-full -z-10 blur-lg" />
+                      </motion.div>
                     </div>
                     
                     <div className="mt-8 grid grid-cols-3 gap-4">
                       {[1, 2, 3].map((item) => (
                         <motion.div
                           key={item}
-                          animate={{
-                            y: [0, item % 2 === 0 ? -5 : 5, 0]
-                          }}
-                          transition={{
-                            repeat: Infinity,
-                            duration: 3 + item * 0.5,
-                            delay: item * 0.2
-                          }}
-                          className="h-4 bg-blue-100 rounded-full"
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          transition={{ delay: item * 0.1 }}
+                          className="h-4 bg-basil-500/20 rounded-full"
                         />
                       ))}
                     </div>
@@ -154,32 +135,17 @@ const DataInfrastructure = () => {
                       {[1, 2].map((item) => (
                         <motion.div
                           key={item}
-                          animate={{
-                            y: [0, item % 2 === 0 ? -5 : 5, 0]
-                          }}
-                          transition={{
-                            repeat: Infinity,
-                            duration: 3 + item * 0.7,
-                            delay: item * 0.3
-                          }}
-                          className="h-16 bg-blue-50 rounded-xl"
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          transition={{ delay: item * 0.2 }}
+                          className="h-16 bg-basil-500/10 rounded-xl"
                         />
                       ))}
                     </div>
-                  </motion.div>
+                  </div>
                 </div>
                 
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-basil-500/20 to-basil-600/20 rounded-full blur-3xl"
-                  animate={{
-                    scale: [1, 1.05, 1],
-                    rotate: [0, 1, 0]
-                  }}
-                  transition={{
-                    repeat: Infinity,
-                    duration: 8
-                  }}
-                />
+                <div className="absolute inset-0 bg-gradient-to-r from-basil-500/10 to-basil-600/10 rounded-full blur-3xl -z-10" />
               </motion.div>
             </div>
           </Container>
