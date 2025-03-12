@@ -1,5 +1,5 @@
 
-import { ArrowRight, TrendingUp, Brain, BarChart3 } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import Container from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
@@ -13,74 +13,30 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative py-20 md:py-32 flex items-center bg-gradient-to-b from-white to-gray-50">
-      {/* Background elements */}
-      <div className="absolute inset-0 -z-10 overflow-hidden">
-        <div className="absolute right-0 top-0 -translate-y-1/4 translate-x-1/4 transform opacity-10 hidden md:block">
-          <svg width="404" height="784" fill="none" viewBox="0 0 404 784">
-            <defs>
-              <pattern id="pattern-circles" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-                <circle cx="6" cy="6" r="2" fill="#FF7A14" />
-              </pattern>
-            </defs>
-            <rect width="404" height="784" fill="url(#pattern-circles)" />
-          </svg>
-        </div>
-        <div className="absolute left-0 bottom-0 -translate-x-1/4 translate-y-1/4 transform opacity-10 hidden md:block">
-          <svg width="404" height="784" fill="none" viewBox="0 0 404 784">
-            <defs>
-              <pattern id="pattern-circles-2" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-                <circle cx="6" cy="6" r="2" fill="#FF7A14" />
-              </pattern>
-            </defs>
-            <rect width="404" height="784" fill="url(#pattern-circles-2)" />
-          </svg>
-        </div>
-        <div
-          className="absolute right-1/4 top-1/3 h-48 w-48 rounded-full bg-basil-500/10 hidden md:block"
-        />
-      </div>
-
-      <Container className="relative z-10 py-8 md:py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+    <section className="py-16 bg-white">
+      <Container>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           {/* Left content column */}
-          <div className="text-left max-w-2xl">            
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight text-gray-900">
-              Turning <span className="inline-block relative">
-                Data
-                <div
-                  className="absolute -z-10 bottom-0 left-0 h-3 bg-basil-500"
-                />
-              </span> into 
-              {" "}Business{" "}
-              <span className="inline-block relative">
-                Advantage
-                <div
-                  className="absolute -z-10 bottom-0 left-0 h-3 bg-basil-500"
-                />
-              </span>
+          <div className="text-left">            
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900">
+              Turning Data into Business Advantage
             </h1>
             
-            <p
-              className="mt-10 text-xl md:text-2xl text-gray-600 max-w-xl"
-            >
+            <p className="mt-6 text-lg text-gray-600">
               Leverage your data's full potential with our expert consulting services. 
               We turn information into insights that drive growth.
             </p>
             
-            <div
-              className="mt-12 flex flex-col sm:flex-row gap-6"
-            >
-              <Button asChild size="lg" className="rounded-md px-10 py-8 text-xl group">
+            <div className="mt-8 flex flex-col sm:flex-row gap-4">
+              <Button asChild size="lg">
                 <Link to="/contact">
                   Start Your Journey
-                  <ArrowRight className="ml-2 h-6 w-6 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
               <Button 
                 variant="outline" 
-                size="lg" 
-                className="rounded-md border-basil-200 px-10 py-8 text-xl"
+                size="lg"
                 onClick={scrollToFeatures}
               >
                 Explore Our Solutions
@@ -89,100 +45,20 @@ const Hero = () => {
           </div>
           
           {/* Right stats column */}
-          <div className="relative">
-            <div className="grid grid-cols-2 gap-6">
-              {/* AI Market Growth - McKinsey */}
-              <div className="glass-card rounded-xl p-6 shadow-lg border border-basil-100 bg-white/90">
-                <div className="flex items-center mb-3">
-                  <div className="rounded-full bg-basil-50 w-10 h-10 flex items-center justify-center mr-3">
-                    <Brain className="h-5 w-5 text-basil-500" />
-                  </div>
-                  <h3 className="font-semibold text-gray-800 text-base">AI Impact</h3>
-                </div>
-                
-                <div className="mt-3">
-                  <div
-                    className="h-2 bg-basil-500 rounded-full w-[87%]"
-                  />
-                </div>
-                
-                <div className="mt-3 flex justify-between items-baseline">
-                  <span className="text-3xl font-bold text-gray-900">$13T</span>
-                  <span className="text-base text-basil-600 flex items-center">
-                    <TrendingUp className="h-4 w-4 mr-1" />
-                    By 2030
-                  </span>
-                </div>
-                
-                <p className="mt-3 text-base text-gray-600">
-                  Projected global economic value added by AI
-                </p>
+          <div className="bg-gray-50 p-6 rounded-lg">
+            <h2 className="text-2xl font-bold mb-4">Key Industry Metrics</h2>
+            <div className="space-y-4">
+              <div className="p-4 bg-white rounded border">
+                <h3 className="font-semibold">AI Impact</h3>
+                <p className="text-2xl font-bold mt-2">$13T</p>
+                <p className="text-sm text-gray-600">Projected global economic value by 2030</p>
               </div>
               
-              {/* Global Fintech - Goldman Sachs */}
-              <div className="glass-card rounded-xl p-6 shadow-lg border border-basil-100 bg-white/90">
-                <div className="flex items-center mb-3">
-                  <div className="rounded-full bg-basil-50 w-10 h-10 flex items-center justify-center mr-3">
-                    <BarChart3 className="h-5 w-5 text-basil-500" />
-                  </div>
-                  <h3 className="font-semibold text-gray-800 text-base">Fintech Growth</h3>
-                </div>
-                
-                <div className="mt-3">
-                  <div className="flex gap-0.5 h-12">
-                    {[35, 42, 48, 55, 62, 68, 75].map((height, i) => (
-                      <div
-                        key={i}
-                        style={{ height: `${height}%` }}
-                        className="flex-1 bg-basil-500 rounded-t-sm"
-                      />
-                    ))}
-                  </div>
-                </div>
-                
-                <div className="mt-3 flex justify-between items-baseline">
-                  <span className="text-3xl font-bold text-gray-900">$1.8T</span>
-                  <span className="text-base text-basil-600 flex items-center">
-                    <TrendingUp className="h-4 w-4 mr-1" />
-                    Revenue by 2025
-                  </span>
-                </div>
-                
-                <p className="mt-3 text-base text-gray-600">
-                  Global fintech industry projected revenue
-                </p>
+              <div className="p-4 bg-white rounded border">
+                <h3 className="font-semibold">Fintech Growth</h3>
+                <p className="text-2xl font-bold mt-2">$1.8T</p>
+                <p className="text-sm text-gray-600">Global fintech industry revenue by 2025</p>
               </div>
-              
-              {/* Digital Transformation ROI - Deloitte */}
-              <div className="glass-card rounded-xl p-6 shadow-lg border border-basil-100 bg-white/90 col-span-2">
-                <div className="flex items-center mb-4">
-                  <div className="rounded-full bg-basil-50 w-10 h-10 flex items-center justify-center mr-3">
-                    <TrendingUp className="h-5 w-5 text-basil-500" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-800 text-base">Digital Transformation ROI</h3>
-                    <p className="text-base text-gray-600">Digitally mature companies outperform</p>
-                  </div>
-                </div>
-                
-                <div className="grid grid-cols-3 gap-4 mt-3">
-                  {[3.0, 4.1, 5.8].map((value, i) => (
-                    <div
-                      key={i}
-                      className="p-4 rounded-lg text-center bg-gray-50"
-                    >
-                      <div className="text-xl font-bold text-basil-600">{value}x</div>
-                      <div className="text-base text-gray-500">
-                        {i === 0 ? 'Revenue' : i === 1 ? 'Profit' : 'Growth'} 
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-            
-            <div className="absolute -bottom-3 -right-3 text-base bg-basil-600 text-white py-1.5 px-3 rounded">
-              Sources: McKinsey, Goldman Sachs 2024
             </div>
           </div>
         </div>
