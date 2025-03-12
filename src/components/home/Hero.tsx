@@ -1,5 +1,5 @@
 
-import { ArrowRight, Award, BarChart2, LineChart, TrendingUp } from "lucide-react";
+import { ArrowRight, BarChart2, LineChart, TrendingUp } from "lucide-react";
 import { Link } from "react-router-dom";
 import Container from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
@@ -20,17 +20,12 @@ const Hero = () => {
           <div className="lg:col-span-6 text-left space-y-6">            
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
               <span className="relative">
-                Turning Data 
-                <span className="absolute bottom-2 left-0 w-full h-3 bg-basil-500/20 -z-10 animate-[pulse_4s_ease-in-out_infinite]"></span>
-              </span>
-              <br />into<br /> 
-              <span className="relative">
-                Business
+                Turning Data
                 <span className="absolute bottom-2 left-0 w-full h-3 bg-basil-500/20 -z-10 animate-[pulse_4s_ease-in-out_infinite]"></span>
               </span>
               <br />
               <span className="relative">
-                Advantage
+                into Business Advantage
                 <span className="absolute bottom-2 left-0 w-full h-3 bg-basil-500/20 -z-10 animate-[pulse_4s_ease-in-out_infinite]"></span>
               </span>
             </h1>
