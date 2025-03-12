@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import Container from "@/components/ui/container";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { motion, AnimatePresence } from "framer-motion";
 
 const solutionsLinks = [
   { name: "Data Infrastructure", path: "/solutions/data-infrastructure" },
@@ -70,6 +71,10 @@ const Navbar = () => {
   const toggleResourcesDropdown = () => {
     setResourcesDropdownOpen(!resourcesDropdownOpen);
     if (solutionsDropdownOpen) setSolutionsDropdownOpen(false);
+  };
+
+  const toggleMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
   return (
@@ -141,15 +146,34 @@ const Navbar = () => {
               {resourcesDropdownOpen && (
                 <div className="absolute top-full left-0 mt-2 w-56 origin-top-left rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                   <div className="py-1">
-                    {resourcesLinks.map((link) => (
-                      <Link
-                        key={link.name}
-                        to={link.path}
-                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                      >
-                        {link.name}
-                      </Link>
-                    ))}
+                    <Link 
+                      to="/resources/case-studies" 
+                      className="block px-4 py-3 text-gray-700 hover:bg-gray-100"
+                      onClick={() => setResourcesDropdownOpen(false)}
+                    >
+                      Case Studies
+                    </Link>
+                    <Link 
+                      to="/resources/white-papers" 
+                      className="block px-4 py-3 text-gray-700 hover:bg-gray-100"
+                      onClick={() => setResourcesDropdownOpen(false)}
+                    >
+                      White Papers
+                    </Link>
+                    <Link 
+                      to="/resources/documentation" 
+                      className="block px-4 py-3 text-gray-700 hover:bg-gray-100"
+                      onClick={() => setResourcesDropdownOpen(false)}
+                    >
+                      Documentation
+                    </Link>
+                    <Link 
+                      to="/resources/webinars" 
+                      className="block px-4 py-3 text-gray-700 hover:bg-gray-100"
+                      onClick={() => setResourcesDropdownOpen(false)}
+                    >
+                      Webinars
+                    </Link>
                   </div>
                 </div>
               )}
@@ -203,7 +227,7 @@ const Navbar = () => {
 
           <button
             className="lg:hidden p-2 text-gray-600"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            onClick={toggleMenu}
             aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? (
@@ -252,15 +276,34 @@ const Navbar = () => {
                 
                 {resourcesDropdownOpen && (
                   <div className="mt-2 pl-4 space-y-2">
-                    {resourcesLinks.map((link) => (
-                      <Link
-                        key={link.name}
-                        to={link.path}
-                        className="block py-2 text-sm text-gray-500 hover:text-basil-500"
-                      >
-                        {link.name}
-                      </Link>
-                    ))}
+                    <Link
+                      to="/resources/case-studies"
+                      className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-basil-600 hover:bg-gray-50 rounded-md"
+                      onClick={() => setResourcesDropdownOpen(false)}
+                    >
+                      Case Studies
+                    </Link>
+                    <Link
+                      to="/resources/white-papers"
+                      className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-basil-600 hover:bg-gray-50 rounded-md"
+                      onClick={() => setResourcesDropdownOpen(false)}
+                    >
+                      White Papers
+                    </Link>
+                    <Link
+                      to="/resources/documentation"
+                      className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-basil-600 hover:bg-gray-50 rounded-md"
+                      onClick={() => setResourcesDropdownOpen(false)}
+                    >
+                      Documentation
+                    </Link>
+                    <Link
+                      to="/resources/webinars"
+                      className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-basil-600 hover:bg-gray-50 rounded-md"
+                      onClick={() => setResourcesDropdownOpen(false)}
+                    >
+                      Webinars
+                    </Link>
                   </div>
                 )}
               </div>
@@ -303,6 +346,103 @@ const Navbar = () => {
           </div>
         )}
       </Container>
+
+      {/* Mobile menu */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            className="md:hidden bg-white"
+          >
+            <Container>
+              <div className="pt-2 pb-4 space-y-1">
+                <Link
+                  to="/about"
+                  className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-basil-600 hover:bg-gray-50 rounded-md"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  About
+                </Link>
+                
+                {/* Mobile Resources Dropdown */}
+                <div>
+                  <button
+                    onClick={toggleResourcesDropdown}
+                    className="flex items-center justify-between w-full px-3 py-2 text-base font-medium text-gray-700 hover:text-basil-600 hover:bg-gray-50 rounded-md"
+                  >
+                    Resources
+                    <ChevronDown className={`ml-1 h-4 w-4 transition-transform ${resourcesDropdownOpen ? 'rotate-180' : ''}`} />
+                  </button>
+                  
+                  {resourcesDropdownOpen && (
+                    <div className="pl-4">
+                      <Link
+                        to="/resources/case-studies"
+                        className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-basil-600 hover:bg-gray-50 rounded-md"
+                        onClick={() => setResourcesDropdownOpen(false)}
+                      >
+                        Case Studies
+                      </Link>
+                      <Link
+                        to="/resources/white-papers"
+                        className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-basil-600 hover:bg-gray-50 rounded-md"
+                        onClick={() => setResourcesDropdownOpen(false)}
+                      >
+                        White Papers
+                      </Link>
+                      <Link
+                        to="/resources/documentation"
+                        className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-basil-600 hover:bg-gray-50 rounded-md"
+                        onClick={() => setResourcesDropdownOpen(false)}
+                      >
+                        Documentation
+                      </Link>
+                      <Link
+                        to="/resources/webinars"
+                        className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-basil-600 hover:bg-gray-50 rounded-md"
+                        onClick={() => setResourcesDropdownOpen(false)}
+                      >
+                        Webinars
+                      </Link>
+                      <Link
+                        to="/blog"
+                        className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-basil-600 hover:bg-gray-50 rounded-md"
+                        onClick={() => setResourcesDropdownOpen(false)}
+                      >
+                        Blog
+                      </Link>
+                    </div>
+                  )}
+                </div>
+                
+                <Link
+                  to="/services"
+                  className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-basil-600 hover:bg-gray-50 rounded-md"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Services
+                </Link>
+                <Link
+                  to="/contact"
+                  className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-basil-600 hover:bg-gray-50 rounded-md"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Contact
+                </Link>
+                <div className="pt-4">
+                  <Button asChild className="w-full">
+                    <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>
+                      Get Started
+                    </Link>
+                  </Button>
+                </div>
+              </div>
+            </Container>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 };

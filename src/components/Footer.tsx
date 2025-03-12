@@ -1,7 +1,6 @@
-
 import { Link } from "react-router-dom";
 import Container from "@/components/ui/container";
-import { Mail, Phone, MapPin, Linkedin, Twitter, Facebook, Instagram } from "lucide-react";
+import { Mail, Linkedin, Twitter, Facebook, Instagram } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -93,9 +92,9 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="text-gray-600 hover:text-basil-500 transition-colors">
-                  Contact
-                </Link>
+                <a href="mailto:info@basilconsulting.com" className="text-gray-600 hover:text-basil-500 transition-colors">
+                  Contact Us
+                </a>
               </li>
             </ul>
           </div>
@@ -105,24 +104,24 @@ const Footer = () => {
             <h3 className="text-base font-semibold mb-4">Resources</h3>
             <ul className="space-y-3">
               <li>
-                <a href="#" className="text-gray-600 hover:text-basil-500 transition-colors">
+                <Link to="/resources/case-studies" className="text-gray-600 hover:text-basil-500 transition-colors">
                   Case Studies
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-gray-600 hover:text-basil-500 transition-colors">
+                <Link to="/resources/white-papers" className="text-gray-600 hover:text-basil-500 transition-colors">
                   White Papers
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-gray-600 hover:text-basil-500 transition-colors">
+                <Link to="/resources/documentation" className="text-gray-600 hover:text-basil-500 transition-colors">
                   Documentation
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-gray-600 hover:text-basil-500 transition-colors">
+                <Link to="/resources/webinars" className="text-gray-600 hover:text-basil-500 transition-colors">
                   Webinars
-                </a>
+                </Link>
               </li>
               <li>
                 <a href="#" className="text-gray-600 hover:text-basil-500 transition-colors">
@@ -141,19 +140,6 @@ const Footer = () => {
           <div>
             <h3 className="text-base font-semibold mb-4">Contact Us</h3>
             <ul className="space-y-4">
-              <li className="flex items-start">
-                <MapPin className="h-5 w-5 text-basil-500 mr-3 mt-0.5" />
-                <span className="text-gray-600">
-                  123 Business Avenue, Suite 500<br />
-                  San Francisco, CA 94107
-                </span>
-              </li>
-              <li className="flex items-center">
-                <Phone className="h-5 w-5 text-basil-500 mr-3" />
-                <a href="tel:+1234567890" className="text-gray-600 hover:text-basil-500 transition-colors">
-                  +1 (234) 567-890
-                </a>
-              </li>
               <li className="flex items-center">
                 <Mail className="h-5 w-5 text-basil-500 mr-3" />
                 <a href="mailto:info@basilconsulting.com" className="text-gray-600 hover:text-basil-500 transition-colors">

@@ -1,4 +1,3 @@
-
 // Import CSS files first
 import './index.css'
 import './App.css'

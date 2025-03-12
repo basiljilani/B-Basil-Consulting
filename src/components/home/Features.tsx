@@ -1,31 +1,9 @@
-
-import { BarChart, Shield, Code, LineChart } from "lucide-react";
 import Container from "@/components/ui/container";
 import SectionHeading from "@/components/ui/section-heading";
+import { features } from "@/data/features";
 import { motion } from "framer-motion";
-
-const features = [
-  {
-    icon: <BarChart className="h-8 w-8 text-basil-500" />,
-    title: "Data Infrastructure",
-    description: "Build robust, scalable data architectures that serve as the foundation for your organization's data strategy.",
-  },
-  {
-    icon: <Shield className="h-8 w-8 text-basil-500" />,
-    title: "Security & Compliance",
-    description: "Implement comprehensive data security measures and ensure compliance with industry regulations and standards.",
-  },
-  {
-    icon: <Code className="h-8 w-8 text-basil-500" />,
-    title: "Custom Solutions",
-    description: "Develop tailored data solutions that address your specific business challenges and unlock new opportunities.",
-  },
-  {
-    icon: <LineChart className="h-8 w-8 text-basil-500" />,
-    title: "Analytics & Insights",
-    description: "Transform raw data into actionable insights with advanced analytics and intuitive visualization tools.",
-  },
-];
+import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Features = () => {
   const containerVariants = {
@@ -48,7 +26,7 @@ const Features = () => {
   };
 
   return (
-    <section className="harmony-section section-padding bg-gray-50">
+    <section id="features" className="py-24 bg-gradient-to-b from-gray-50 to-white">
       <Container>
         <SectionHeading
           title="Our Areas of Expertise"
@@ -57,7 +35,7 @@ const Features = () => {
         />
         
         <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-16"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -67,14 +45,33 @@ const Features = () => {
             <motion.div 
               key={index}
               variants={itemVariants}
-              className="harmony-card card-light rounded-xl hover-lift hover-glow"
+              className="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 
+                        transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group"
             >
-              <div className="icon-container-gradient text-white mb-6">
-                {feature.icon}
+              {/* Colored top bar */}
+              <div className="h-1.5 w-full bg-basil-500"></div>
+              
+              <div className="p-8">
+                {/* Icon with gradient background */}
+                <div className="w-14 h-14 rounded-lg flex items-center justify-center mb-6 bg-gradient-to-r from-basil-500 to-basil-600 text-white">
+                  {feature.icon}
+                </div>
+                
+                {/* Title */}
+                <h3 className="text-xl font-semibold mb-4 text-gray-900">{feature.title}</h3>
+                
+                {/* Description */}
+                <p className="text-gray-600 leading-relaxed mb-6">{feature.description}</p>
+                
+                {/* Learn more link */}
+                <Link 
+                  to={`/solutions/${feature.slug}`} 
+                  className="inline-flex items-center text-basil-600 font-medium hover:text-basil-700 transition-colors group-hover:underline"
+                >
+                  Learn more
+                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Link>
               </div>
-              <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
-              <p className="text-muted-foreground">{feature.description}</p>
-              <div className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-basil-500 to-transparent w-1/3 opacity-70"></div>
             </motion.div>
           ))}
         </motion.div>

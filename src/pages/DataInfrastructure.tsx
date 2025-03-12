@@ -1,4 +1,3 @@
-
 import { 
   ArrowRight, 
   CheckCircle2, 
@@ -55,26 +54,26 @@ const DataInfrastructure = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
-      <main className="flex-grow">
-        {/* Hero Section - significantly reduced padding and spacing */}
-        <section className="bg-gradient-to-b from-black to-gray-900 text-white py-6 md:py-8">
+      <main className="flex-grow pt-16">
+        {/* Hero Section - Adjusted to fix navbar overlap */}
+        <section className="bg-gradient-to-b from-black to-gray-900 text-white py-12 md:py-16 mt-4 relative z-0">
           <Container>
             <div className="grid lg:grid-cols-2 gap-4 items-center">
               <div>
-                <h1 className="text-2xl md:text-3xl font-bold mb-2">
-                  Data Infrastructure Solutions
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
+                  Data Infrastructure <span className="text-basil-500">Solutions</span>
                 </h1>
-                <p className="text-base text-gray-300 mb-4">
+                <p className="text-lg text-gray-300 mb-6 max-w-lg">
                   Build the foundation for your data-driven business with scalable, reliable, and high-performance infrastructure solutions.
                 </p>
-                <div className="flex flex-wrap gap-2">
-                  <Button asChild size="sm" className="rounded-full">
+                <div className="flex flex-wrap gap-3">
+                  <Button asChild size="lg" className="rounded-full">
                     <Link to="/contact">
                       Discuss Your Requirements
-                      <ArrowRight className="ml-2 h-3 w-3" />
+                      <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>
                   </Button>
-                  <Button asChild variant="outline" size="sm" className="rounded-full">
+                  <Button asChild variant="outline" size="lg" className="rounded-full bg-white text-gray-900 border-white hover:bg-transparent hover:text-white">
                     <Link to="/services">
                       Explore All Services
                     </Link>
@@ -276,7 +275,7 @@ const DataInfrastructure = () => {
               <h2 className="text-3xl font-bold mb-6">
                 Ready to build your optimal data infrastructure?
               </h2>
-              <p className="text-blue-100 mb-8 text-lg">
+              <p className="text-white mb-8 text-lg">
                 Let's discuss how we can design and implement a data infrastructure 
                 solution that meets your specific business requirements.
               </p>
@@ -287,7 +286,7 @@ const DataInfrastructure = () => {
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
-                <Button asChild variant="outline" size="lg" className="rounded-full border-white text-white hover:bg-white hover:text-blue-600">
+                <Button asChild variant="outline" size="lg" className="rounded-full bg-white text-gray-900 border-white hover:bg-transparent hover:text-white">
                   <Link to="/services">
                     Explore More Services
                   </Link>

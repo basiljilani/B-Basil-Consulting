@@ -1,0 +1,63 @@
+.hero-section {
+  height: calc(100vh - 80px);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 2rem;
+  margin-top: 100px;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-content {
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 20px;
+}
+
+.hero-title {
+  font-size: clamp(3.5rem, 6vw, 5rem);
+  line-height: 1.1;
+  margin-bottom: 2rem;
+  text-align: left;
+  font-weight: bold;
+  color: #1a202c;
+}
+
+/* Orange underline animation for highlighted words */
+.highlight {
+  position: relative;
+  display: inline-block;
+  color: inherit;
+}
+
+.highlight::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0;
+  height: 4px;
+  background-color: #FF8C00;
+  animation: underlineAnimation 2s ease-in-out infinite alternate;
+}
+
+@keyframes underlineAnimation {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+/* For smaller screens, ensure text breaks properly into two lines */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+  }
+} 
