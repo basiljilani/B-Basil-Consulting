@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import { useEffect, useRef } from "react";
 import Chart from 'chart.js/auto';
 import { motion } from "framer-motion";
-import "./Hero.css";
 
 const Hero = () => {
   const aiChartRef = useRef(null);
@@ -292,10 +291,10 @@ const Hero = () => {
           <div className="lg:col-span-6 space-y-8">
             <div className="text-5xl md:text-6xl font-bold leading-tight tracking-tight text-gray-900">
               <div>
-                Turning <span className="highlight-word">Data</span> into
+                Turning <span className="text-orange-500 inline-block">Data</span> into
               </div>
               <div>
-                Business <span className="highlight-word second">Advantage</span>
+                Business <span className="text-green-600 inline-block">Advantage</span>
               </div>
             </div>
             
