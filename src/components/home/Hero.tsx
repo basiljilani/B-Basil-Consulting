@@ -1,4 +1,3 @@
-
 import { ArrowRight, TrendingUp, Brain, BarChart3 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -26,7 +25,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-white to-gray-50 min-h-[calc(100vh-4rem)]">
+    <section className="relative overflow-hidden bg-gradient-to-b from-white to-gray-50 min-h-[calc(100vh-4rem)] flex items-center">
       {/* Background elements */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute right-0 top-0 -translate-y-1/4 translate-x-1/4 transform opacity-10">
@@ -63,20 +62,20 @@ const Hero = () => {
         />
       </div>
 
-      <Container className="relative z-10 h-full flex items-center py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+      <Container className="relative z-10 py-8 md:py-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           {/* Left content column */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-left max-w-xl"
+            className="text-left max-w-2xl"
           >            
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight text-gray-900">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight text-gray-900">
               Turning <span className="inline-block relative">
                 Data
                 <motion.div
-                  className="absolute -z-10 bottom-0 left-0 h-1.5 bg-basil-500"
+                  className="absolute -z-10 bottom-0 left-0 h-2 bg-basil-500"
                   initial={{ width: 0 }}
                   animate={{ width: "100%" }}
                   transition={{ delay: 0.8, duration: 0.8 }}
@@ -86,7 +85,7 @@ const Hero = () => {
               <span className="inline-block relative">
                 Advantage
                 <motion.div
-                  className="absolute -z-10 bottom-0 left-0 h-1.5 bg-basil-500"
+                  className="absolute -z-10 bottom-0 left-0 h-2 bg-basil-500"
                   initial={{ width: 0 }}
                   animate={{ width: "100%" }}
                   transition={{ delay: 1.2, duration: 0.8 }}
@@ -95,7 +94,7 @@ const Hero = () => {
             </h1>
             
             <motion.p
-              className="mt-6 text-lg md:text-xl text-gray-600 max-w-lg"
+              className="mt-8 text-xl md:text-2xl text-gray-600 max-w-xl"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.6 }}
@@ -105,21 +104,21 @@ const Hero = () => {
             </motion.p>
             
             <motion.div
-              className="mt-8 flex flex-col sm:flex-row gap-4"
+              className="mt-10 flex flex-col sm:flex-row gap-5"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.6 }}
             >
-              <Button asChild size="lg" className="rounded-md px-6 group">
+              <Button asChild size="lg" className="rounded-md px-8 py-6 text-lg group">
                 <Link to="/contact">
                   Start Your Journey
-                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </Button>
               <Button 
                 variant="outline" 
                 size="lg" 
-                className="rounded-md border-basil-200"
+                className="rounded-md border-basil-200 px-8 py-6 text-lg"
                 onClick={scrollToFeatures}
               >
                 Explore Our Solutions
@@ -134,40 +133,40 @@ const Hero = () => {
             transition={{ delay: 0.5, duration: 0.7 }}
             className="relative"
           >
-            <div className="grid grid-cols-2 gap-2">
+            <div className="grid grid-cols-2 gap-4">
               {/* AI Market Growth - McKinsey */}
               <motion.div
                 custom={0}
                 variants={statsVariants}
                 initial="hidden"
                 animate="visible"
-                className="glass-card rounded-lg p-2 shadow-md border border-basil-100 bg-white/90"
+                className="glass-card rounded-xl p-4 shadow-lg border border-basil-100 bg-white/90"
               >
-                <div className="flex items-center mb-1">
-                  <div className="rounded-full bg-basil-50 w-6 h-6 flex items-center justify-center mr-2">
-                    <Brain className="h-3 w-3 text-basil-500" />
+                <div className="flex items-center mb-2">
+                  <div className="rounded-full bg-basil-50 w-8 h-8 flex items-center justify-center mr-3">
+                    <Brain className="h-4 w-4 text-basil-500" />
                   </div>
-                  <h3 className="font-semibold text-gray-800 text-xs">AI Impact</h3>
+                  <h3 className="font-semibold text-gray-800 text-sm">AI Impact</h3>
                 </div>
                 
-                <div className="mt-1">
+                <div className="mt-2">
                   <motion.div
                     initial={{ width: 0 }}
                     animate={{ width: "87%" }}
                     transition={{ delay: 1, duration: 1 }}
-                    className="h-1 bg-basil-500 rounded-full"
+                    className="h-1.5 bg-basil-500 rounded-full"
                   />
                 </div>
                 
-                <div className="mt-1 flex justify-between items-baseline">
-                  <span className="text-base font-bold text-gray-900">$13T</span>
-                  <span className="text-xs text-basil-600 flex items-center">
-                    <TrendingUp className="h-2.5 w-2.5 mr-1" />
+                <div className="mt-2 flex justify-between items-baseline">
+                  <span className="text-2xl font-bold text-gray-900">$13T</span>
+                  <span className="text-sm text-basil-600 flex items-center">
+                    <TrendingUp className="h-3.5 w-3.5 mr-1" />
                     By 2030
                   </span>
                 </div>
                 
-                <p className="mt-1 text-xs text-gray-600">
+                <p className="mt-2 text-sm text-gray-600">
                   Projected global economic value added by AI
                 </p>
               </motion.div>
@@ -178,17 +177,17 @@ const Hero = () => {
                 variants={statsVariants}
                 initial="hidden"
                 animate="visible"
-                className="glass-card rounded-lg p-2 shadow-md border border-basil-100 bg-white/90"
+                className="glass-card rounded-xl p-4 shadow-lg border border-basil-100 bg-white/90"
               >
-                <div className="flex items-center mb-1">
-                  <div className="rounded-full bg-basil-50 w-6 h-6 flex items-center justify-center mr-2">
-                    <BarChart3 className="h-3 w-3 text-basil-500" />
+                <div className="flex items-center mb-2">
+                  <div className="rounded-full bg-basil-50 w-8 h-8 flex items-center justify-center mr-3">
+                    <BarChart3 className="h-4 w-4 text-basil-500" />
                   </div>
-                  <h3 className="font-semibold text-gray-800 text-xs">Fintech Growth</h3>
+                  <h3 className="font-semibold text-gray-800 text-sm">Fintech Growth</h3>
                 </div>
                 
-                <div className="mt-1">
-                  <div className="flex gap-0.5 h-8">
+                <div className="mt-2">
+                  <div className="flex gap-0.5 h-10">
                     {[35, 42, 48, 55, 62, 68, 75].map((height, i) => (
                       <motion.div
                         key={i}
@@ -201,15 +200,15 @@ const Hero = () => {
                   </div>
                 </div>
                 
-                <div className="mt-1 flex justify-between items-baseline">
-                  <span className="text-base font-bold text-gray-900">$1.8T</span>
-                  <span className="text-xs text-basil-600 flex items-center">
-                    <TrendingUp className="h-2.5 w-2.5 mr-1" />
+                <div className="mt-2 flex justify-between items-baseline">
+                  <span className="text-2xl font-bold text-gray-900">$1.8T</span>
+                  <span className="text-sm text-basil-600 flex items-center">
+                    <TrendingUp className="h-3.5 w-3.5 mr-1" />
                     Revenue by 2025
                   </span>
                 </div>
                 
-                <p className="mt-1 text-xs text-gray-600">
+                <p className="mt-2 text-sm text-gray-600">
                   Global fintech industry projected revenue
                 </p>
               </motion.div>
@@ -220,29 +219,29 @@ const Hero = () => {
                 variants={statsVariants}
                 initial="hidden"
                 animate="visible"
-                className="glass-card rounded-lg p-2 shadow-md border border-basil-100 bg-white/90 col-span-2"
+                className="glass-card rounded-xl p-4 shadow-lg border border-basil-100 bg-white/90 col-span-2"
               >
-                <div className="flex items-center mb-1">
-                  <div className="rounded-full bg-basil-50 w-6 h-6 flex items-center justify-center mr-2">
-                    <TrendingUp className="h-3 w-3 text-basil-500" />
+                <div className="flex items-center mb-3">
+                  <div className="rounded-full bg-basil-50 w-8 h-8 flex items-center justify-center mr-3">
+                    <TrendingUp className="h-4 w-4 text-basil-500" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-800 text-xs">Digital Transformation ROI</h3>
-                    <p className="text-xs text-gray-600">Digitally mature companies outperform</p>
+                    <h3 className="font-semibold text-gray-800 text-sm">Digital Transformation ROI</h3>
+                    <p className="text-sm text-gray-600">Digitally mature companies outperform</p>
                   </div>
                 </div>
                 
-                <div className="grid grid-cols-3 gap-2 mt-1">
+                <div className="grid grid-cols-3 gap-4 mt-2">
                   {[3.0, 4.1, 5.8].map((value, i) => (
                     <motion.div
                       key={i}
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 1.5 + i * 0.2, duration: 0.5 }}
-                      className="p-1 rounded-md text-center bg-gray-50"
+                      className="p-3 rounded-lg text-center bg-gray-50"
                     >
-                      <div className="text-sm font-bold text-basil-600">{value}x</div>
-                      <div className="text-xs text-gray-500">
+                      <div className="text-lg font-bold text-basil-600">{value}x</div>
+                      <div className="text-sm text-gray-500">
                         {i === 0 ? 'Revenue' : i === 1 ? 'Profit' : 'Growth'} 
                       </div>
                     </motion.div>
@@ -255,7 +254,7 @@ const Hero = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 2, duration: 0.8 }}
-              className="absolute -bottom-1 -right-1 text-xs bg-basil-600 text-white py-0.5 px-1 rounded"
+              className="absolute -bottom-2 -right-2 text-sm bg-basil-600 text-white py-1 px-2 rounded"
             >
               Sources: McKinsey, Goldman Sachs 2024
             </motion.div>
