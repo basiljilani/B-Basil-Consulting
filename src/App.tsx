@@ -14,7 +14,7 @@ import CustomSolutions from "./pages/CustomSolutions";
 import DataInfrastructure from "./pages/DataInfrastructure";
 import SecurityCompliance from "./pages/SecurityCompliance";
 import AnalyticsInsights from "./pages/AnalyticsInsights";
-import "./App.css";
+// No need to import App.css here as we're now importing it in main.tsx
 
 const queryClient = new QueryClient();
 
