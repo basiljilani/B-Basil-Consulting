@@ -1,4 +1,3 @@
-
 import { 
   ArrowRight, 
   CheckCircle2, 
@@ -55,26 +54,26 @@ const DataInfrastructure = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
-      <main className="flex-grow pt-24">
-        {/* Hero Section */}
-        <section className="bg-gradient-to-b from-black to-gray-900 text-white py-16 md:py-24">
+      <main className="flex-grow pt-16">
+        {/* Hero Section - reduced padding and height */}
+        <section className="bg-gradient-to-b from-black to-gray-900 text-white py-10 md:py-14">
           <Container>
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="grid lg:grid-cols-2 gap-6 items-center">
               <div>
-                <h1 className="text-4xl md:text-5xl font-bold mb-6">
+                <h1 className="text-3xl md:text-4xl font-bold mb-4">
                   Data Infrastructure Solutions
                 </h1>
-                <p className="text-xl text-gray-300 mb-8">
+                <p className="text-lg text-gray-300 mb-6">
                   Build the foundation for your data-driven business with scalable, reliable, and high-performance infrastructure solutions.
                 </p>
-                <div className="flex flex-wrap gap-4">
-                  <Button asChild size="lg" className="rounded-full">
+                <div className="flex flex-wrap gap-3">
+                  <Button asChild size="default" className="rounded-full">
                     <Link to="/contact">
                       Discuss Your Requirements
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>
                   </Button>
-                  <Button asChild variant="outline" size="lg" className="rounded-full">
+                  <Button asChild variant="outline" size="default" className="rounded-full">
                     <Link to="/services">
                       Explore All Services
                     </Link>
@@ -88,7 +87,7 @@ const DataInfrastructure = () => {
         </section>
         
         {/* Technologies Section */}
-        <section className="py-16 md:py-24 bg-black">
+        <section className="py-16 md:py-20 bg-black">
           <Container>
             <SectionHeading 
               title="Core Technologies" 
@@ -156,7 +155,7 @@ const DataInfrastructure = () => {
         </section>
         
         {/* Business Benefits Section */}
-        <section className="py-16 md:py-24 bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white relative overflow-hidden">
+        <section className="py-16 md:py-20 bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white relative overflow-hidden">
           {/* Background decorative elements */}
           <div className="absolute inset-0 opacity-30">
             <div className="absolute -top-40 -right-40 w-96 h-96 bg-basil-500/10 rounded-full filter blur-3xl"></div>

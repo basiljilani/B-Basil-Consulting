@@ -26,11 +26,11 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-white to-gray-50 py-10 md:py-16">
-      {/* Background elements - made more subtle */}
+    <section className="relative overflow-hidden bg-gradient-to-b from-white to-gray-50 py-8 md:py-12">
+      {/* Background elements - more subtle and compact */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute right-0 top-0 -translate-y-1/4 translate-x-1/4 transform opacity-20">
-          <svg width="304" height="584" fill="none" viewBox="0 0 404 784">
+        <div className="absolute right-0 top-0 -translate-y-1/4 translate-x-1/4 transform opacity-15">
+          <svg width="304" height="484" fill="none" viewBox="0 0 404 784">
             <defs>
               <pattern id="pattern-circles" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
                 <circle cx="6" cy="6" r="2" fill="#FF7A14" />
@@ -39,8 +39,8 @@ const Hero = () => {
             <rect width="404" height="784" fill="url(#pattern-circles)" />
           </svg>
         </div>
-        <div className="absolute left-0 bottom-0 -translate-x-1/4 translate-y-1/4 transform opacity-20">
-          <svg width="304" height="584" fill="none" viewBox="0 0 404 784">
+        <div className="absolute left-0 bottom-0 -translate-x-1/4 translate-y-1/4 transform opacity-15">
+          <svg width="304" height="484" fill="none" viewBox="0 0 404 784">
             <defs>
               <pattern id="pattern-circles-2" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
                 <circle cx="6" cy="6" r="2" fill="#FF7A14" />
@@ -50,7 +50,7 @@ const Hero = () => {
           </svg>
         </div>
         <motion.div
-          className="absolute right-1/4 top-1/3 h-48 w-48 rounded-full bg-basil-500/10"
+          className="absolute right-1/4 top-1/3 h-36 w-36 rounded-full bg-basil-500/10"
           animate={{
             scale: [1, 1.1, 1],
             opacity: [0.2, 0.15, 0.2],
@@ -64,7 +64,7 @@ const Hero = () => {
       </div>
 
       <Container className="relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
           {/* Left content column - more compact */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -72,7 +72,7 @@ const Hero = () => {
             transition={{ duration: 0.6 }}
             className="text-left"
           >            
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight tracking-tight text-gray-900">
+            <h1 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight text-gray-900">
               Turning <span className="inline-block relative">
                 Data
                 <motion.div
@@ -95,30 +95,30 @@ const Hero = () => {
             </h1>
             
             <motion.p
-              className="mt-3 text-base text-gray-600 max-w-md"
+              className="mt-2 text-base text-gray-600 max-w-md"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.6 }}
             >
               Leverage your data's full potential with our expert consulting services. 
-              We turn information into insights that drive growth and innovation.
+              We turn information into insights that drive growth.
             </motion.p>
             
             <motion.div
-              className="mt-6 flex flex-col sm:flex-row gap-3"
+              className="mt-4 flex flex-col sm:flex-row gap-3"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.6 }}
             >
-              <Button asChild size="default" className="rounded-md px-6 group">
+              <Button asChild size="sm" className="rounded-md px-4 group">
                 <Link to="/contact">
                   Start Your Journey
-                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="ml-2 h-3 w-3 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </Button>
               <Button 
                 variant="outline" 
-                size="default" 
+                size="sm" 
                 className="rounded-md border-basil-200"
                 onClick={scrollToFeatures}
               >
@@ -127,40 +127,40 @@ const Hero = () => {
             </motion.div>
           </motion.div>
           
-          {/* Right stats column - more compact and balanced */}
+          {/* Right stats column - more compact */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.7 }}
             className="relative"
           >
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-2 gap-2">
               {/* AI Market Growth - McKinsey */}
               <motion.div
                 custom={0}
                 variants={statsVariants}
                 initial="hidden"
                 animate="visible"
-                className="glass-card rounded-lg p-4 shadow-md border border-basil-100 bg-white/90"
+                className="glass-card rounded-lg p-3 shadow-md border border-basil-100 bg-white/90"
               >
-                <div className="flex items-center mb-2">
-                  <div className="rounded-full bg-basil-50 w-10 h-10 flex items-center justify-center mr-2">
-                    <Brain className="h-5 w-5 text-basil-500" />
+                <div className="flex items-center mb-1">
+                  <div className="rounded-full bg-basil-50 w-8 h-8 flex items-center justify-center mr-2">
+                    <Brain className="h-4 w-4 text-basil-500" />
                   </div>
-                  <h3 className="font-semibold text-gray-800 text-sm">AI Impact</h3>
+                  <h3 className="font-semibold text-gray-800 text-xs">AI Impact</h3>
                 </div>
                 
-                <div className="mt-2">
+                <div className="mt-1">
                   <motion.div
                     initial={{ width: 0 }}
                     animate={{ width: "87%" }}
                     transition={{ delay: 1, duration: 1 }}
-                    className="h-1.5 bg-basil-500 rounded-full"
+                    className="h-1 bg-basil-500 rounded-full"
                   />
                 </div>
                 
-                <div className="mt-2 flex justify-between items-baseline">
-                  <span className="text-2xl font-bold text-gray-900">$13T</span>
+                <div className="mt-1 flex justify-between items-baseline">
+                  <span className="text-xl font-bold text-gray-900">$13T</span>
                   <span className="text-xs text-basil-600 flex items-center">
                     <TrendingUp className="h-3 w-3 mr-1" />
                     By 2030
@@ -168,7 +168,7 @@ const Hero = () => {
                 </div>
                 
                 <p className="mt-1 text-xs text-gray-600">
-                  Projected global economic value added by generative AI
+                  Projected global economic value added by AI
                 </p>
               </motion.div>
               
@@ -178,17 +178,17 @@ const Hero = () => {
                 variants={statsVariants}
                 initial="hidden"
                 animate="visible"
-                className="glass-card rounded-lg p-4 shadow-md border border-basil-100 bg-white/90"
+                className="glass-card rounded-lg p-3 shadow-md border border-basil-100 bg-white/90"
               >
-                <div className="flex items-center mb-2">
-                  <div className="rounded-full bg-basil-50 w-10 h-10 flex items-center justify-center mr-2">
-                    <BarChart3 className="h-5 w-5 text-basil-500" />
+                <div className="flex items-center mb-1">
+                  <div className="rounded-full bg-basil-50 w-8 h-8 flex items-center justify-center mr-2">
+                    <BarChart3 className="h-4 w-4 text-basil-500" />
                   </div>
-                  <h3 className="font-semibold text-gray-800 text-sm">Fintech Growth</h3>
+                  <h3 className="font-semibold text-gray-800 text-xs">Fintech Growth</h3>
                 </div>
                 
-                <div className="mt-2">
-                  <div className="flex gap-0.5 h-14">
+                <div className="mt-1">
+                  <div className="flex gap-0.5 h-10">
                     {[35, 42, 48, 55, 62, 68, 75].map((height, i) => (
                       <motion.div
                         key={i}
@@ -201,8 +201,8 @@ const Hero = () => {
                   </div>
                 </div>
                 
-                <div className="mt-2 flex justify-between items-baseline">
-                  <span className="text-2xl font-bold text-gray-900">$1.8T</span>
+                <div className="mt-1 flex justify-between items-baseline">
+                  <span className="text-xl font-bold text-gray-900">$1.8T</span>
                   <span className="text-xs text-basil-600 flex items-center">
                     <TrendingUp className="h-3 w-3 mr-1" />
                     Revenue by 2025
@@ -210,7 +210,7 @@ const Hero = () => {
                 </div>
                 
                 <p className="mt-1 text-xs text-gray-600">
-                  Global fintech industry projected revenue by 2025
+                  Global fintech industry projected revenue
                 </p>
               </motion.div>
               
@@ -220,28 +220,28 @@ const Hero = () => {
                 variants={statsVariants}
                 initial="hidden"
                 animate="visible"
-                className="glass-card rounded-lg p-4 shadow-md border border-basil-100 bg-white/90 col-span-2"
+                className="glass-card rounded-lg p-3 shadow-md border border-basil-100 bg-white/90 col-span-2"
               >
-                <div className="flex items-center mb-2">
-                  <div className="rounded-full bg-basil-50 w-10 h-10 flex items-center justify-center mr-2">
-                    <TrendingUp className="h-5 w-5 text-basil-500" />
+                <div className="flex items-center mb-1">
+                  <div className="rounded-full bg-basil-50 w-8 h-8 flex items-center justify-center mr-2">
+                    <TrendingUp className="h-4 w-4 text-basil-500" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-800 text-sm">Digital Transformation ROI</h3>
-                    <p className="text-xs text-gray-600">Digitally mature companies outperform competitors</p>
+                    <h3 className="font-semibold text-gray-800 text-xs">Digital Transformation ROI</h3>
+                    <p className="text-xs text-gray-600">Digitally mature companies outperform</p>
                   </div>
                 </div>
                 
-                <div className="grid grid-cols-3 gap-2 mt-2">
+                <div className="grid grid-cols-3 gap-2 mt-1">
                   {[3.0, 4.1, 5.8].map((value, i) => (
                     <motion.div
                       key={i}
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 1.5 + i * 0.2, duration: 0.5 }}
-                      className="p-2 rounded-md text-center bg-gray-50"
+                      className="p-1.5 rounded-md text-center bg-gray-50"
                     >
-                      <div className="text-base font-bold text-basil-600">{value}x</div>
+                      <div className="text-sm font-bold text-basil-600">{value}x</div>
                       <div className="text-xs text-gray-500">
                         {i === 0 ? 'Revenue' : i === 1 ? 'Profit' : 'Growth'} 
                       </div>
@@ -255,9 +255,9 @@ const Hero = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 2, duration: 0.8 }}
-              className="absolute -bottom-2 -right-2 text-xs bg-basil-600 text-white py-0.5 px-1.5 rounded"
+              className="absolute -bottom-1 -right-1 text-xs bg-basil-600 text-white py-0.5 px-1 rounded"
             >
-              Sources: McKinsey, Goldman Sachs, Deloitte 2024
+              Sources: McKinsey, Goldman Sachs 2024
             </motion.div>
           </motion.div>
         </div>
