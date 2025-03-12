@@ -82,7 +82,7 @@ const Hero = () => {
                   transition={{ delay: 0.8, duration: 0.8 }}
                 />
               </span> into 
-              <br className="hidden sm:block" /> Business{" "}
+              {" "}Business{" "}
               <span className="inline-block relative">
                 Advantage
                 <motion.div
