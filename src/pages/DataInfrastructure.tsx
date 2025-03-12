@@ -20,6 +20,7 @@ import SectionHeading from "@/components/ui/section-heading";
 import { Button } from "@/components/ui/button";
 import DataCharts from "@/components/data-infrastructure/DataCharts";
 import HeroCard from "@/components/data-infrastructure/HeroCard";
+import BusinessBenefits from "@/components/data-infrastructure/BusinessBenefits";
 
 const technologies = [
   {
@@ -46,25 +47,6 @@ const technologies = [
     icon: <Network className="h-6 w-6" />,
     title: "Data Integration Pipelines",
     description: "Seamless ETL/ELT pipelines connecting all your data sources and destinations."
-  }
-];
-
-const benefits = [
-  {
-    title: "Scalability",
-    description: "Infrastructure that grows with your business needs, from startup to enterprise scale."
-  },
-  {
-    title: "Performance",
-    description: "Optimized systems delivering high-performance data processing capabilities."
-  },
-  {
-    title: "Cost Efficiency",
-    description: "Strategic infrastructure design that maximizes ROI while minimizing operational costs."
-  },
-  {
-    title: "Future-Proofing",
-    description: "Architectures built to adapt to evolving technologies and business requirements."
   }
 ];
 
@@ -176,7 +158,7 @@ const DataInfrastructure = () => {
                   className="relative group"
                 >
                   <div className="absolute inset-0 bg-gradient-to-br from-basil-500/20 via-basil-500/10 to-transparent rounded-2xl blur-xl transition-opacity group-hover:opacity-75" />
-                  <div className="relative p-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl h-full transition-all duration-300 group-hover:border-basil-500/50">
+                  <div className="relative p-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl h-full transition-all duration-300" >
                     <div className="h-12 w-12 rounded-xl bg-gradient-to-br from-basil-500 to-basil-600 flex items-center justify-center text-white mb-4 transition-transform group-hover:scale-110">
                       {tech.icon}
                     </div>
@@ -243,113 +225,8 @@ const DataInfrastructure = () => {
         {/* Charts Section */}
         <DataCharts />
         
-        {/* Benefits Section */}
-        <section className="py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white">
-          <Container>
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-                className="space-y-6"
-              >
-                <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                  Business Benefits of Robust Data Infrastructure
-                </h2>
-                <p className="text-lg text-muted-foreground mb-8">
-                  A well-designed data infrastructure does more than store data—it transforms how your business operates.
-                </p>
-                
-                <div className="space-y-6">
-                  {benefits.map((benefit, index) => (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.5, delay: index * 0.1 }}
-                      className="group relative overflow-hidden rounded-xl bg-white p-6 shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300"
-                    >
-                      <div className="absolute inset-0 bg-gradient-to-r from-basil-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                      <div className="relative z-10">
-                        <div className="flex items-start gap-4">
-                          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-basil-500/10 text-basil-600">
-                            <CheckCircle2 className="h-5 w-5" />
-                          </div>
-                          <div>
-                            <h3 className="font-semibold text-xl mb-2 text-gray-900 group-hover:text-basil-600 transition-colors">
-                              {benefit.title}
-                            </h3>
-                            <p className="text-muted-foreground leading-relaxed">
-                              {benefit.description}
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="absolute bottom-0 left-0 h-1 w-0 bg-gradient-to-r from-basil-500 to-basil-600 group-hover:w-full transition-all duration-300" />
-                    </motion.div>
-                  ))}
-                </div>
-                
-                <div className="mt-10">
-                  <Button asChild size="lg" className="rounded-full">
-                    <Link to="/contact">
-                      Get Started
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                    </Link>
-                  </Button>
-                </div>
-              </motion.div>
-              
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-                className="relative"
-              >
-                <div className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-blue-50 to-blue-100 p-8">
-                  <motion.div
-                    animate={{
-                      scale: [1, 1.02, 1],
-                      rotate: [0, 1, 0],
-                    }}
-                    transition={{
-                      repeat: Infinity,
-                      duration: 8,
-                    }}
-                    className="grid grid-cols-3 gap-4"
-                  >
-                    {[...Array(9)].map((_, index) => (
-                      <motion.div
-                        key={index}
-                        animate={{
-                          scale: [1, index % 3 === 1 ? 1.1 : 1, 1],
-                          opacity: [0.7, 1, 0.7],
-                        }}
-                        transition={{
-                          repeat: Infinity,
-                          duration: 4 + (index % 3),
-                          delay: index * 0.2,
-                        }}
-                        className="aspect-square rounded-xl bg-white shadow-sm flex items-center justify-center"
-                      >
-                        <div className={`h-8 w-8 rounded-lg ${
-                          index % 3 === 0 ? 'bg-basil-500/20' : 
-                          index % 3 === 1 ? 'bg-basil-400/20' : 
-                          'bg-basil-300/20'
-                        }`} />
-                      </motion.div>
-                    ))}
-                  </motion.div>
-                  
-                  <div className="absolute inset-0 bg-gradient-to-br from-white/50 to-transparent pointer-events-none" />
-                </div>
-              </motion.div>
-            </div>
-          </Container>
-        </section>
+        {/* Benefits Section - Replaced with BusinessBenefits component */}
+        <BusinessBenefits />
         
         {/* CTA Section */}
         <section className="py-16 md:py-20 bg-gradient-to-b from-gray-900 to-black text-white">
@@ -363,7 +240,7 @@ const DataInfrastructure = () => {
                 solution that meets your specific business requirements.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button asChild size="lg" variant="secondary" className="rounded-full">
+                <Button asChild size="lg" className="rounded-full">
                   <Link to="/contact">
                     Schedule a Consultation
                     <ArrowRight className="ml-2 h-4 w-4" />
