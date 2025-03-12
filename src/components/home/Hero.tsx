@@ -26,8 +26,8 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-white to-gray-50 py-4 md:py-6">
-      {/* Background elements - more subtle and compact */}
+    <section className="relative overflow-hidden bg-gradient-to-b from-white to-gray-50 min-h-[calc(100vh-4rem)]">
+      {/* Background elements */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute right-0 top-0 -translate-y-1/4 translate-x-1/4 transform opacity-10">
           <svg width="304" height="484" fill="none" viewBox="0 0 404 784">
@@ -63,20 +63,20 @@ const Hero = () => {
         />
       </div>
 
-      <Container className="relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 items-center">
-          {/* Left content column - more compact */}
+      <Container className="relative z-10 h-full flex items-center py-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+          {/* Left content column */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-left"
+            className="text-left max-w-xl"
           >            
-            <h1 className="text-2xl md:text-3xl font-bold leading-tight tracking-tight text-gray-900">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight text-gray-900">
               Turning <span className="inline-block relative">
                 Data
                 <motion.div
-                  className="absolute -z-10 bottom-0 left-0 h-1 bg-basil-500"
+                  className="absolute -z-10 bottom-0 left-0 h-1.5 bg-basil-500"
                   initial={{ width: 0 }}
                   animate={{ width: "100%" }}
                   transition={{ delay: 0.8, duration: 0.8 }}
@@ -86,7 +86,7 @@ const Hero = () => {
               <span className="inline-block relative">
                 Advantage
                 <motion.div
-                  className="absolute -z-10 bottom-0 left-0 h-1 bg-basil-500"
+                  className="absolute -z-10 bottom-0 left-0 h-1.5 bg-basil-500"
                   initial={{ width: 0 }}
                   animate={{ width: "100%" }}
                   transition={{ delay: 1.2, duration: 0.8 }}
@@ -95,7 +95,7 @@ const Hero = () => {
             </h1>
             
             <motion.p
-              className="mt-1 text-sm text-gray-600 max-w-md"
+              className="mt-6 text-lg md:text-xl text-gray-600 max-w-lg"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.6 }}
@@ -105,20 +105,20 @@ const Hero = () => {
             </motion.p>
             
             <motion.div
-              className="mt-3 flex flex-col sm:flex-row gap-2"
+              className="mt-8 flex flex-col sm:flex-row gap-4"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.6 }}
             >
-              <Button asChild size="sm" className="rounded-md px-4 group">
+              <Button asChild size="lg" className="rounded-md px-6 group">
                 <Link to="/contact">
                   Start Your Journey
-                  <ArrowRight className="ml-2 h-3 w-3 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </Button>
               <Button 
                 variant="outline" 
-                size="sm" 
+                size="lg" 
                 className="rounded-md border-basil-200"
                 onClick={scrollToFeatures}
               >
@@ -127,7 +127,7 @@ const Hero = () => {
             </motion.div>
           </motion.div>
           
-          {/* Right stats column - more compact */}
+          {/* Right stats column */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
