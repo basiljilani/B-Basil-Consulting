@@ -19,9 +19,9 @@ const Container = ({
     <Component 
       className={cn(
         "w-full mx-auto",
-        size === "small" && "max-w-screen-md px-4 sm:px-6",
-        size === "default" && "max-w-screen-xl px-4 sm:px-6 lg:px-8",
-        size === "large" && "max-w-screen-2xl px-4 sm:px-8 lg:px-12",
+        size === "small" && "max-w-screen-md px-3 sm:px-4",
+        size === "default" && "max-w-screen-xl px-3 sm:px-4 lg:px-6",
+        size === "large" && "max-w-screen-2xl px-4 sm:px-6 lg:px-8",
         className
       )} 
       {...props}

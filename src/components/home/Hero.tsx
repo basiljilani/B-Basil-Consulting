@@ -26,10 +26,10 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-white to-gray-50 py-8 md:py-12">
+    <section className="relative overflow-hidden bg-gradient-to-b from-white to-gray-50 py-4 md:py-6">
       {/* Background elements - more subtle and compact */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute right-0 top-0 -translate-y-1/4 translate-x-1/4 transform opacity-15">
+        <div className="absolute right-0 top-0 -translate-y-1/4 translate-x-1/4 transform opacity-10">
           <svg width="304" height="484" fill="none" viewBox="0 0 404 784">
             <defs>
               <pattern id="pattern-circles" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
@@ -39,7 +39,7 @@ const Hero = () => {
             <rect width="404" height="784" fill="url(#pattern-circles)" />
           </svg>
         </div>
-        <div className="absolute left-0 bottom-0 -translate-x-1/4 translate-y-1/4 transform opacity-15">
+        <div className="absolute left-0 bottom-0 -translate-x-1/4 translate-y-1/4 transform opacity-10">
           <svg width="304" height="484" fill="none" viewBox="0 0 404 784">
             <defs>
               <pattern id="pattern-circles-2" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
@@ -64,7 +64,7 @@ const Hero = () => {
       </div>
 
       <Container className="relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 items-center">
           {/* Left content column - more compact */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -72,7 +72,7 @@ const Hero = () => {
             transition={{ duration: 0.6 }}
             className="text-left"
           >            
-            <h1 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight text-gray-900">
+            <h1 className="text-2xl md:text-3xl font-bold leading-tight tracking-tight text-gray-900">
               Turning <span className="inline-block relative">
                 Data
                 <motion.div
@@ -95,7 +95,7 @@ const Hero = () => {
             </h1>
             
             <motion.p
-              className="mt-2 text-base text-gray-600 max-w-md"
+              className="mt-1 text-sm text-gray-600 max-w-md"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.6 }}
@@ -105,7 +105,7 @@ const Hero = () => {
             </motion.p>
             
             <motion.div
-              className="mt-4 flex flex-col sm:flex-row gap-3"
+              className="mt-3 flex flex-col sm:flex-row gap-2"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.6 }}
@@ -141,11 +141,11 @@ const Hero = () => {
                 variants={statsVariants}
                 initial="hidden"
                 animate="visible"
-                className="glass-card rounded-lg p-3 shadow-md border border-basil-100 bg-white/90"
+                className="glass-card rounded-lg p-2 shadow-md border border-basil-100 bg-white/90"
               >
                 <div className="flex items-center mb-1">
-                  <div className="rounded-full bg-basil-50 w-8 h-8 flex items-center justify-center mr-2">
-                    <Brain className="h-4 w-4 text-basil-500" />
+                  <div className="rounded-full bg-basil-50 w-6 h-6 flex items-center justify-center mr-2">
+                    <Brain className="h-3 w-3 text-basil-500" />
                   </div>
                   <h3 className="font-semibold text-gray-800 text-xs">AI Impact</h3>
                 </div>
@@ -160,9 +160,9 @@ const Hero = () => {
                 </div>
                 
                 <div className="mt-1 flex justify-between items-baseline">
-                  <span className="text-xl font-bold text-gray-900">$13T</span>
+                  <span className="text-base font-bold text-gray-900">$13T</span>
                   <span className="text-xs text-basil-600 flex items-center">
-                    <TrendingUp className="h-3 w-3 mr-1" />
+                    <TrendingUp className="h-2.5 w-2.5 mr-1" />
                     By 2030
                   </span>
                 </div>
@@ -178,17 +178,17 @@ const Hero = () => {
                 variants={statsVariants}
                 initial="hidden"
                 animate="visible"
-                className="glass-card rounded-lg p-3 shadow-md border border-basil-100 bg-white/90"
+                className="glass-card rounded-lg p-2 shadow-md border border-basil-100 bg-white/90"
               >
                 <div className="flex items-center mb-1">
-                  <div className="rounded-full bg-basil-50 w-8 h-8 flex items-center justify-center mr-2">
-                    <BarChart3 className="h-4 w-4 text-basil-500" />
+                  <div className="rounded-full bg-basil-50 w-6 h-6 flex items-center justify-center mr-2">
+                    <BarChart3 className="h-3 w-3 text-basil-500" />
                   </div>
                   <h3 className="font-semibold text-gray-800 text-xs">Fintech Growth</h3>
                 </div>
                 
                 <div className="mt-1">
-                  <div className="flex gap-0.5 h-10">
+                  <div className="flex gap-0.5 h-8">
                     {[35, 42, 48, 55, 62, 68, 75].map((height, i) => (
                       <motion.div
                         key={i}
@@ -202,9 +202,9 @@ const Hero = () => {
                 </div>
                 
                 <div className="mt-1 flex justify-between items-baseline">
-                  <span className="text-xl font-bold text-gray-900">$1.8T</span>
+                  <span className="text-base font-bold text-gray-900">$1.8T</span>
                   <span className="text-xs text-basil-600 flex items-center">
-                    <TrendingUp className="h-3 w-3 mr-1" />
+                    <TrendingUp className="h-2.5 w-2.5 mr-1" />
                     Revenue by 2025
                   </span>
                 </div>
@@ -220,11 +220,11 @@ const Hero = () => {
                 variants={statsVariants}
                 initial="hidden"
                 animate="visible"
-                className="glass-card rounded-lg p-3 shadow-md border border-basil-100 bg-white/90 col-span-2"
+                className="glass-card rounded-lg p-2 shadow-md border border-basil-100 bg-white/90 col-span-2"
               >
                 <div className="flex items-center mb-1">
-                  <div className="rounded-full bg-basil-50 w-8 h-8 flex items-center justify-center mr-2">
-                    <TrendingUp className="h-4 w-4 text-basil-500" />
+                  <div className="rounded-full bg-basil-50 w-6 h-6 flex items-center justify-center mr-2">
+                    <TrendingUp className="h-3 w-3 text-basil-500" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-gray-800 text-xs">Digital Transformation ROI</h3>
@@ -239,7 +239,7 @@ const Hero = () => {
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 1.5 + i * 0.2, duration: 0.5 }}
-                      className="p-1.5 rounded-md text-center bg-gray-50"
+                      className="p-1 rounded-md text-center bg-gray-50"
                     >
                       <div className="text-sm font-bold text-basil-600">{value}x</div>
                       <div className="text-xs text-gray-500">
