@@ -20,7 +20,6 @@ import SectionHeading from "@/components/ui/section-heading";
 import { Button } from "@/components/ui/button";
 import DataCharts from "@/components/data-infrastructure/DataCharts";
 import HeroCard from "@/components/data-infrastructure/HeroCard";
-import BusinessBenefits from "@/components/data-infrastructure/BusinessBenefits";
 
 const technologies = [
   {
@@ -224,9 +223,6 @@ const DataInfrastructure = () => {
         
         {/* Charts Section */}
         <DataCharts />
-        
-        {/* Benefits Section - Replaced with BusinessBenefits component */}
-        <BusinessBenefits />
         
         {/* CTA Section */}
         <section className="py-16 md:py-20 bg-gradient-to-b from-gray-900 to-black text-white">
