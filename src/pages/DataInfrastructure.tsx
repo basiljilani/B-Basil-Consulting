@@ -19,6 +19,7 @@ import Container from "@/components/ui/container";
 import SectionHeading from "@/components/ui/section-heading";
 import { Button } from "@/components/ui/button";
 import DataCharts from "@/components/data-infrastructure/DataCharts";
+import HeroCard from "@/components/data-infrastructure/HeroCard";
 
 const technologies = [
   {
@@ -124,54 +125,8 @@ const DataInfrastructure = () => {
                   </Button>
                 </div>
               </div>
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.5 }}
-                className="relative"
-              >
-                <div className="bg-white/10 backdrop-blur-sm p-8 rounded-3xl border border-white/20">
-                  <div className="relative z-10">
-                    <div className="flex items-center justify-center">
-                      <motion.div
-                        initial={{ scale: 0.95 }}
-                        animate={{ scale: 1 }}
-                        transition={{ duration: 0.5 }}
-                        className="relative"
-                      >
-                        <Database className="h-20 w-20 text-basil-500" />
-                        <div className="absolute inset-0 bg-basil-500/20 rounded-full -z-10 blur-lg" />
-                      </motion.div>
-                    </div>
-                    
-                    <div className="mt-8 grid grid-cols-3 gap-4">
-                      {[1, 2, 3].map((item) => (
-                        <motion.div
-                          key={item}
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          transition={{ delay: item * 0.1 }}
-                          className="h-4 bg-basil-500/20 rounded-full"
-                        />
-                      ))}
-                    </div>
-                    
-                    <div className="mt-4 grid grid-cols-2 gap-4">
-                      {[1, 2].map((item) => (
-                        <motion.div
-                          key={item}
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          transition={{ delay: item * 0.2 }}
-                          className="h-16 bg-basil-500/10 rounded-xl"
-                        />
-                      ))}
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="absolute inset-0 bg-gradient-to-r from-basil-500/10 to-basil-600/10 rounded-full blur-3xl -z-10" />
-              </motion.div>
+              
+              <HeroCard />
             </div>
           </Container>
         </section>
