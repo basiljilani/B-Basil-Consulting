@@ -18,6 +18,7 @@ import Footer from "@/components/Footer";
 import Container from "@/components/ui/container";
 import SectionHeading from "@/components/ui/section-heading";
 import { Button } from "@/components/ui/button";
+import DataCharts from "@/components/data-infrastructure/DataCharts";
 
 const technologies = [
   {
@@ -283,6 +284,9 @@ const DataInfrastructure = () => {
             </div>
           </Container>
         </section>
+        
+        {/* Charts Section */}
+        <DataCharts />
         
         {/* Benefits Section */}
         <section className="py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white">
