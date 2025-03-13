@@ -79,16 +79,14 @@ const Navbar = () => {
   };
 
   // Function to handle mobile navigation
-  const handleMobileNavigation = (path: string, event: React.MouseEvent) => {
-    event.preventDefault(); // Prevent default link behavior
+  const handleMobileNavigation = (path: string) => {
+    // Close the mobile menu
     setIsMobileMenuOpen(false);
     setSolutionsDropdownOpen(false);
     setResourcesDropdownOpen(false);
     
-    // Use navigate to programmatically change routes
-    setTimeout(() => {
-      navigate(path);
-    }, 10);
+    // Use window.location for direct navigation
+    window.location.href = path;
   };
 
   return (
@@ -251,14 +249,14 @@ const Navbar = () => {
                   {solutionsDropdownOpen && (
                     <div className="pl-4">
                       {solutionsLinks.map((link) => (
-                        <a
-                          key={link.name}
-                          href={link.path}
-                          className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-basil-600 hover:bg-gray-50 rounded-md"
-                          onClick={(e) => handleMobileNavigation(link.path, e)}
-                        >
-                          {link.name}
-                        </a>
+                        <div key={link.name} className="block">
+                          <button
+                            onClick={() => handleMobileNavigation(link.path)}
+                            className="block w-full text-left px-3 py-2 text-base font-medium text-gray-700 hover:text-basil-600 hover:bg-gray-50 rounded-md"
+                          >
+                            {link.name}
+                          </button>
+                        </div>
                       ))}
                     </div>
                   )}
@@ -276,41 +274,39 @@ const Navbar = () => {
                   {resourcesDropdownOpen && (
                     <div className="pl-4">
                       {resourcesLinks.map((link) => (
-                        <a
-                          key={link.name}
-                          href={link.path}
-                          className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-basil-600 hover:bg-gray-50 rounded-md"
-                          onClick={(e) => handleMobileNavigation(link.path, e)}
-                        >
-                          {link.name}
-                        </a>
+                        <div key={link.name} className="block">
+                          <button
+                            onClick={() => handleMobileNavigation(link.path)}
+                            className="block w-full text-left px-3 py-2 text-base font-medium text-gray-700 hover:text-basil-600 hover:bg-gray-50 rounded-md"
+                          >
+                            {link.name}
+                          </button>
+                        </div>
                       ))}
                     </div>
                   )}
                 </div>
                 
-                <a
-                  href="https://basilconsulting.substack.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-basil-600 hover:bg-gray-50 rounded-md"
-                >
-                  Blog
-                </a>
-                
-                <Link
-                  to="/about"
-                  className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-basil-600 hover:bg-gray-50 rounded-md"
+                <button
+                  onClick={() => handleMobileNavigation("/about")}
+                  className="block w-full text-left px-3 py-2 text-base font-medium text-gray-700 hover:text-basil-600 hover:bg-gray-50 rounded-md"
                 >
                   About Us
-                </Link>
+                </button>
                 
-                <a
-                  href="mailto:info@basilconsulting.com"
-                  className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-basil-600 hover:bg-gray-50 rounded-md"
+                <button
+                  onClick={() => handleMobileNavigation("https://basilconsulting.substack.com/")}
+                  className="block w-full text-left px-3 py-2 text-base font-medium text-gray-700 hover:text-basil-600 hover:bg-gray-50 rounded-md"
+                >
+                  Blog
+                </button>
+                
+                <button
+                  onClick={() => handleMobileNavigation("mailto:info@basilconsulting.com")}
+                  className="block w-full text-left px-3 py-2 text-base font-medium text-gray-700 hover:text-basil-600 hover:bg-gray-50 rounded-md"
                 >
                   Contact
-                </a>
+                </button>
                 
                 <div className="pt-4 space-y-3">
                   <Button 
