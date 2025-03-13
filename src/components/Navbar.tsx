@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import Container from "@/components/ui/container";
 import { ChevronDown, Menu, X } from "lucide-react";
@@ -26,6 +26,7 @@ const Navbar = () => {
   const [solutionsDropdownOpen, setSolutionsDropdownOpen] = useState(false);
   const [resourcesDropdownOpen, setResourcesDropdownOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
   
   const solutionsRef = useRef<HTMLDivElement>(null);
   const resourcesRef = useRef<HTMLDivElement>(null);
@@ -75,6 +76,19 @@ const Navbar = () => {
 
   const toggleMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  // Function to handle mobile navigation
+  const handleMobileNavigation = (path: string, event: React.MouseEvent) => {
+    event.preventDefault(); // Prevent default link behavior
+    setIsMobileMenuOpen(false);
+    setSolutionsDropdownOpen(false);
+    setResourcesDropdownOpen(false);
+    
+    // Use navigate to programmatically change routes
+    setTimeout(() => {
+      navigate(path);
+    }, 10);
   };
 
   return (
@@ -237,14 +251,14 @@ const Navbar = () => {
                   {solutionsDropdownOpen && (
                     <div className="pl-4">
                       {solutionsLinks.map((link) => (
-                        <Link
+                        <a
                           key={link.name}
-                          to={link.path}
+                          href={link.path}
                           className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-basil-600 hover:bg-gray-50 rounded-md"
-                          onClick={() => setSolutionsDropdownOpen(false)}
+                          onClick={(e) => handleMobileNavigation(link.path, e)}
                         >
                           {link.name}
-                        </Link>
+                        </a>
                       ))}
                     </div>
                   )}
@@ -262,14 +276,14 @@ const Navbar = () => {
                   {resourcesDropdownOpen && (
                     <div className="pl-4">
                       {resourcesLinks.map((link) => (
-                        <Link
+                        <a
                           key={link.name}
-                          to={link.path}
+                          href={link.path}
                           className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-basil-600 hover:bg-gray-50 rounded-md"
-                          onClick={() => setResourcesDropdownOpen(false)}
+                          onClick={(e) => handleMobileNavigation(link.path, e)}
                         >
                           {link.name}
-                        </Link>
+                        </a>
                       ))}
                     </div>
                   )}

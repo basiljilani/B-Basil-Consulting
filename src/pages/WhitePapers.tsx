@@ -7,7 +7,7 @@ const WhitePapers = () => {
       title="White Papers Coming Soon"
       description="Our team of experts is developing in-depth white papers on industry trends, technological innovations, and strategic insights. Subscribe to be notified when our first publications are available."
       icon={<BookOpen className="h-10 w-10" />}
-      estimatedDate="September 2024"
+      estimatedDate="August 2025"
     />
   );
 };

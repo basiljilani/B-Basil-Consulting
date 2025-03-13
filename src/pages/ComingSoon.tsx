@@ -17,8 +17,11 @@ const ComingSoon: React.FC<ComingSoonProps> = ({
   title, 
   description, 
   icon,
-  estimatedDate = "Q3 2024" 
+  estimatedDate = "August 2025" 
 }) => {
+  // Extract the main title by removing "Coming Soon" if present
+  const mainTitle = title.replace("Coming Soon", "").trim();
+  
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
@@ -37,14 +40,19 @@ const ComingSoon: React.FC<ComingSoonProps> = ({
                 </div>
               </motion.div>
               
-              <motion.h1
+              <motion.div
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
-                className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6"
+                className="mb-6"
               >
-                {title}
-              </motion.h1>
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-2">
+                  {mainTitle}
+                </h1>
+                <div className="text-orange-500 font-bold text-3xl md:text-4xl lg:text-5xl">
+                  Coming Soon
+                </div>
+              </motion.div>
               
               <motion.p
                 initial={{ opacity: 0, y: -20 }}
