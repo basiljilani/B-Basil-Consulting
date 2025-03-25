@@ -1,10 +1,9 @@
-
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import Container from "@/components/ui/container";
 import SectionHeading from "@/components/ui/section-heading";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, Lightbulb, Rocket, LineChart, Code } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const services = [
@@ -42,6 +41,18 @@ const services = [
       "ML model deployment and monitoring",
       "Computer vision applications",
       "Natural language processing solutions"
+    ]
+  },
+  {
+    id: "innovation-labs",
+    title: "Innovation Labs",
+    description: "Accelerate your startup journey with our end-to-end development and data solutions",
+    details: [
+      "Rapid MVP development and prototyping",
+      "Custom web application development",
+      "Interactive data analytics dashboards",
+      "Scalable data infrastructure setup",
+      "Technical co-founding and advisory"
     ]
   }
 ];
@@ -132,14 +143,67 @@ const Services = () => {
                       {service.description}
                     </motion.p>
                     
-                    <motion.h4 
-                      className="font-medium mb-4"
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ duration: 0.3, delay: 0.3 }}
-                    >
-                      Key Offerings:
-                    </motion.h4>
+                    {service.id === "innovation-labs" ? (
+                      <>
+                        <motion.div 
+                          className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6"
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          transition={{ duration: 0.3, delay: 0.3 }}
+                        >
+                          <div className="bg-gradient-to-br from-basil-50 to-basil-100 p-5 rounded-lg flex flex-col items-center text-center">
+                            <div className="bg-white p-3 rounded-full shadow-sm mb-3">
+                              <Rocket className="h-6 w-6 text-basil-500" />
+                            </div>
+                            <h4 className="font-medium mb-2">Startup Acceleration</h4>
+                            <p className="text-sm text-gray-600">From concept to launch, we help startups build and scale their tech solutions rapidly.</p>
+                          </div>
+                          
+                          <div className="bg-gradient-to-br from-basil-50 to-basil-100 p-5 rounded-lg flex flex-col items-center text-center">
+                            <div className="bg-white p-3 rounded-full shadow-sm mb-3">
+                              <Code className="h-6 w-6 text-basil-500" />
+                            </div>
+                            <h4 className="font-medium mb-2">Web Applications</h4>
+                            <p className="text-sm text-gray-600">Custom web solutions built with modern frameworks and best practices.</p>
+                          </div>
+                          
+                          <div className="bg-gradient-to-br from-basil-50 to-basil-100 p-5 rounded-lg flex flex-col items-center text-center">
+                            <div className="bg-white p-3 rounded-full shadow-sm mb-3">
+                              <LineChart className="h-6 w-6 text-basil-500" />
+                            </div>
+                            <h4 className="font-medium mb-2">Data Dashboards</h4>
+                            <p className="text-sm text-gray-600">Interactive analytics dashboards that transform raw data into actionable insights.</p>
+                          </div>
+                          
+                          <div className="bg-gradient-to-br from-basil-50 to-basil-100 p-5 rounded-lg flex flex-col items-center text-center">
+                            <div className="bg-white p-3 rounded-full shadow-sm mb-3">
+                              <Lightbulb className="h-6 w-6 text-basil-500" />
+                            </div>
+                            <h4 className="font-medium mb-2">Technical Advisory</h4>
+                            <p className="text-sm text-gray-600">Strategic guidance on technology choices, architecture, and scaling considerations.</p>
+                          </div>
+                        </motion.div>
+                        
+                        <motion.h4 
+                          className="font-medium mb-4"
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          transition={{ duration: 0.3, delay: 0.4 }}
+                        >
+                          Our Approach:
+                        </motion.h4>
+                      </>
+                    ) : (
+                      <motion.h4 
+                        className="font-medium mb-4"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.3, delay: 0.3 }}
+                      >
+                        Key Offerings:
+                      </motion.h4>
+                    )}
+                    
                     <ul className="space-y-3">
                       {service.details.map((detail, index) => (
                         <motion.li 
