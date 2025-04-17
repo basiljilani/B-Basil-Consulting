@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import Container from "@/components/ui/container";
 import SectionHeading from "@/components/ui/section-heading";
 import { Button } from "@/components/ui/button";
+import SEO from "@/components/SEO";
 
 const servicesData = [
   {
@@ -84,6 +85,12 @@ const servicesData = [
 const Services = () => {
   return (
     <div className="flex flex-col min-h-screen">
+      <SEO 
+        title="Services"
+        description="Explore Basil Consulting's comprehensive data services including data infrastructure, analytics & insights, security & compliance, and custom solutions."
+        keywords="data consulting services, data infrastructure, analytics insights, security compliance, custom data solutions"
+        canonical="/services"
+      />
       <Navbar />
       <main className="flex-grow pt-24">
         {/* Header */}

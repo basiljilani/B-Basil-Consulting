@@ -5,6 +5,7 @@ import Container from "@/components/ui/container";
 import SectionHeading from "@/components/ui/section-heading";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import SEO from "@/components/SEO";
 
 const ventures = [
   {
@@ -70,6 +71,12 @@ const values = [
 const About = () => {
   return (
     <div className="flex flex-col min-h-screen">
+      <SEO 
+        title="About Us"
+        description="Learn about Basil Consulting's mission, values, and expert team. We transform data into strategic assets for businesses worldwide."
+        keywords="about Basil Consulting, data consulting company, data experts, consulting mission, data transformation"
+        canonical="/about"
+      />
       <Navbar />
       <main className="flex-grow pt-24">
         {/* Hero Section */}

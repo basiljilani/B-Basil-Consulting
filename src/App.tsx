@@ -3,6 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { HelmetProvider } from 'react-helmet-async';
 import Index from "./pages/Index";
 import About from "./pages/About";
 import Services from "./pages/Services";
@@ -34,10 +35,10 @@ const App = () => {
     
     // Add the favicon links with the correct paths
     const iconLinks = [
-      { rel: 'icon', href: '/favicon.ico?v=7', sizes: 'any' },
-      { rel: 'icon', type: 'image/png', href: '/favicon-32x32.png?v=7', sizes: '32x32' },
-      { rel: 'icon', type: 'image/png', href: '/favicon-16x16.png?v=7', sizes: '16x16' },
-      { rel: 'apple-touch-icon', href: '/apple-touch-icon.png?v=7', sizes: '180x180' }
+      { rel: 'icon', href: '/favicon.ico?v=7', sizes: 'any' as string },
+      { rel: 'icon', type: 'image/png', href: '/favicon-32x32.png?v=7', sizes: '32x32' as string },
+      { rel: 'icon', type: 'image/png', href: '/favicon-16x16.png?v=7', sizes: '16x16' as string },
+      { rel: 'apple-touch-icon', href: '/apple-touch-icon.png?v=7', sizes: '180x180' as string }
     ];
     
     iconLinks.forEach(({ rel, type, href, sizes }) => {
@@ -52,40 +53,42 @@ const App = () => {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
-          <ScrollToTop />
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/services" element={<Services />} />
-            
-            {/* Solution pages */}
-            <Route path="/solutions/analytics-insights" element={<AnalyticsInsights />} />
-            <Route path="/solutions/security-compliance" element={<SecurityCompliance />} />
-            <Route path="/solutions/custom-solutions" element={<CustomSolutions />} />
-            <Route path="/solutions/data-infrastructure" element={<DataInfrastructure />} />
-            
-            {/* Resource pages */}
-            <Route path="/resources/case-studies" element={<CaseStudies />} />
-            <Route path="/resources/white-papers" element={<WhitePapers />} />
-            <Route path="/resources/documentation" element={<Documentation />} />
-            <Route path="/resources/webinars" element={<Webinars />} />
-            <Route path="/blog" element={<Blog />} />
-            
-            {/* Contact page */}
-            <Route path="/contact" element={<Contact />} />
-            
-            {/* Redirects for old paths */}
-            <Route path="/services/analytics-insights" element={<Navigate to="/solutions/analytics-insights" replace />} />
-            <Route path="/services/security-compliance" element={<Navigate to="/solutions/security-compliance" replace />} />
-            <Route path="/services/custom-solutions" element={<Navigate to="/solutions/custom-solutions" replace />} />
-            <Route path="/services/data-infrastructure" element={<Navigate to="/solutions/data-infrastructure" replace />} />
-          </Routes>
-        </BrowserRouter>
-      </TooltipProvider>
+      <HelmetProvider>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          <BrowserRouter>
+            <ScrollToTop />
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/services" element={<Services />} />
+              
+              {/* Solution pages */}
+              <Route path="/solutions/analytics-insights" element={<AnalyticsInsights />} />
+              <Route path="/solutions/security-compliance" element={<SecurityCompliance />} />
+              <Route path="/solutions/custom-solutions" element={<CustomSolutions />} />
+              <Route path="/solutions/data-infrastructure" element={<DataInfrastructure />} />
+              
+              {/* Resource pages */}
+              <Route path="/resources/case-studies" element={<CaseStudies />} />
+              <Route path="/resources/white-papers" element={<WhitePapers />} />
+              <Route path="/resources/documentation" element={<Documentation />} />
+              <Route path="/resources/webinars" element={<Webinars />} />
+              <Route path="/blog" element={<Blog />} />
+              
+              {/* Contact page */}
+              <Route path="/contact" element={<Contact />} />
+              
+              {/* Redirects for old paths */}
+              <Route path="/services/analytics-insights" element={<Navigate to="/solutions/analytics-insights" replace />} />
+              <Route path="/services/security-compliance" element={<Navigate to="/solutions/security-compliance" replace />} />
+              <Route path="/services/custom-solutions" element={<Navigate to="/solutions/custom-solutions" replace />} />
+              <Route path="/services/data-infrastructure" element={<Navigate to="/solutions/data-infrastructure" replace />} />
+            </Routes>
+          </BrowserRouter>
+        </TooltipProvider>
+      </HelmetProvider>
     </QueryClientProvider>
   );
 };

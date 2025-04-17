@@ -8,6 +8,7 @@ import SectionHeading from "@/components/ui/section-heading";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import SEO from "@/components/SEO";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -33,6 +34,12 @@ const Contact = () => {
 
   return (
     <div className="flex flex-col min-h-screen">
+      <SEO 
+        title="Contact Us"
+        description="Get in touch with Basil Consulting. We'd love to hear from you and discuss how we can help transform your data into strategic assets."
+        keywords="contact Basil Consulting, data consulting contact, get in touch, business inquiries"
+        canonical="/contact"
+      />
       <Navbar />
       <main className="flex-grow pt-16">
         <section className="flex items-center justify-center min-h-[70vh] py-8 md:py-12 bg-gray-50">
