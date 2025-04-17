@@ -35,16 +35,16 @@ const Contact = () => {
     <div className="flex flex-col min-h-screen">
       <Navbar />
       <main className="flex-grow pt-16">
-        <section className="py-16 md:py-24">
+        <section className="flex items-center justify-center min-h-[70vh] py-8 md:py-12 bg-gray-50">
           <Container>
-            <div className="max-w-3xl mx-auto">
+            <div className="max-w-3xl w-full mx-auto">
               <SectionHeading
                 title="Get in Touch"
                 subtitle="We'd love to hear from you. Send us a message and we'll respond as soon as possible."
                 centered
               />
 
-              <div className="mt-12 bg-white p-8 rounded-xl shadow-sm border border-gray-100">
+              <div className="mt-12 bg-white p-8 rounded-xl shadow-sm border border-gray-100 w-full">
                 <div className="mb-8 flex items-center justify-center">
                   <div className="h-16 w-16 rounded-full bg-basil-100 flex items-center justify-center text-basil-600 mb-4">
                     <Mail className="h-8 w-8" />
@@ -75,7 +75,7 @@ const Contact = () => {
                         name="name"
                         value={formData.name}
                         onChange={handleChange}
-                        placeholder="John Doe"
+                        placeholder="Name"
                         required
                       />
                     </div>
@@ -89,7 +89,7 @@ const Contact = () => {
                         type="email"
                         value={formData.email}
                         onChange={handleChange}
-                        placeholder="john@example.com"
+                        placeholder="sample@example.com"
                         required
                       />
                     </div>
@@ -116,7 +116,7 @@ const Contact = () => {
                       name="message"
                       value={formData.message}
                       onChange={handleChange}
-                      placeholder="Tell us about your project or inquiry..."
+                      placeholder="Type your message here..."
                       rows={6}
                       required
                     />

@@ -65,9 +65,9 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <a href="mailto:info@basilconsulting.com" className="text-gray-600 hover:text-basil-500 transition-colors">
+                <Link to="/contact" className="text-gray-600 hover:text-basil-500 transition-colors">
                   Contact Us
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -125,7 +125,7 @@ const Footer = () => {
 
         {/* Copyright */}
         <div className="pt-8 mt-8 border-t border-gray-200 text-center text-gray-500 text-sm">
-          <p>© {currentYear} Basil Consulting. All rights reserved.</p>
+          <p> {currentYear} Basil Consulting. All rights reserved.</p>
         </div>
       </Container>
     </footer>

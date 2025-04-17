@@ -15,6 +15,7 @@ import WhitePapers from "./pages/WhitePapers";
 import Documentation from "./pages/Documentation";
 import Webinars from "./pages/Webinars";
 import Blog from "./pages/Blog";
+import Contact from "./pages/Contact";
 import ScrollToTop from "./components/ScrollToTop";
 import { useEffect } from 'react';
 // No need to import App.css here as we're now importing it in main.tsx
@@ -74,8 +75,10 @@ const App = () => {
             <Route path="/resources/webinars" element={<Webinars />} />
             <Route path="/blog" element={<Blog />} />
             
+            {/* Contact page */}
+            <Route path="/contact" element={<Contact />} />
+            
             {/* Redirects for old paths */}
-            <Route path="/contact" element={<Navigate to="/" replace />} />
             <Route path="/services/analytics-insights" element={<Navigate to="/solutions/analytics-insights" replace />} />
             <Route path="/services/security-compliance" element={<Navigate to="/solutions/security-compliance" replace />} />
             <Route path="/services/custom-solutions" element={<Navigate to="/solutions/custom-solutions" replace />} />
